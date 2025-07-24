@@ -46,7 +46,10 @@ https://history.jailhouselawyers.org/
 -> https://www.radiopapi.fm/
 
 6. history 페이지는 스크롤 시 가로 슬라이드로 진행되어 해당 제작사의 정보를 보여줌
+스크롤 시 뒤에서 점점 다가왔다가 사라지는 것도 가능
+
 -> https://history.jailhouselawyers.org/
+-> https://www.lumos-marketing.com/
 
 
 
