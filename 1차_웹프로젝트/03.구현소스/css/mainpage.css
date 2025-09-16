@@ -1,0 +1,135 @@
+@charset "utf-8";
+/* EMK뮤지컬컴퍼니 PJ 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+/* 12그리드 CSS */
+@import url(./grid_12_flex.css);
+
+/* 공사중 표시 */
+body * {
+    outline: 2px dashed #ccc;
+}
+
+/***************** 메인 CSS *****************/
+
+/************** 0. 인트로 영역 **************/
+/* 상단영역 인트로 박스 : 평소에는 보이지 않고, 마우스 오버 시 보임 */
+.intro-area .intro-box{
+    overflow: hidden;
+}
+
+/***************** 1. 상단영역 *****************/
+/* 상단영역 최상위 부모박스 */
+#top-area{    
+    position: relative;
+    /* 상단영역이 항상위! */
+    z-index: 9999;
+}
+.top-area{
+    height: 122px;
+}
+
+/* 상단영역 플렉스 부모박스 */
+.top-area .cont-box{
+    justify-content: space-between;
+}
+/* 로고박스 */
+.logo-box{    
+    width: 126px;
+    text-align: center;
+    padding: 25px 0;
+}
+
+/* 메뉴박스 */
+.menu-box{
+    padding-right: 10px;
+}
+
+/* 메뉴그룹 플렉스 */
+.menu-group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    height: 100%;
+}
+/* 상단영역 메뉴 공통 플렉스 */
+.menu-group ul{
+    display: flex;
+}
+/* 탑메뉴 */
+.top-menu ul{
+    font-size: 1.6rem;
+    gap: 2rem;
+}
+/* GNB메뉴 */
+.gnb-menu ul{
+    font-size: 1.8rem;
+    gap: 3.2rem;
+
+}
+
+/* 서브메뉴 */
+.sub-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+/* 타이틀 바 */
+.title-bar{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 서브리스트 ul */
+.sub-list ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100px;
+}
+
+/***************** 1.5. 드라마파트메뉴 *****************/
+/***************** 2. 메인영역 *****************/
+/***************** 2-1. 배너영역 *****************/
+.banner-part{
+    /* 비율셋팅 : 배너이미지크기 비율임! */
+    aspect-ratio: 1380 / 598;
+    
+    /* 임시이미지 */
+    background: url(../../01.구현디자인/결과물/배너포스터/dokaebi_banner1.jpg) no-repeat center/cover;
+}
+/***************** 2-2. 캐릭터영역 *****************/
+.cat-part{
+    height: 188px;
+}
+/***************** 2-3. 드라마소개영역 *****************/
+.intro-part{
+    height: 500px;
+}
+/***************** 2-4. 미리보기영역 *****************/
+.view-part{
+    height: 660px;
+}
+/***************** 2-5. 현장포토영역 *****************/
+.real-part{
+    height: 906px;
+}
+/***************** 2-6. 대표포스터영역 *****************/
+.poster-part{
+    height: 654px;
+}
+/***************** 2-7. 최신동영상영역 *****************/
+.video-part{
+    height: 409px;
+}
+/***************** 3. 하단영역 *****************/
+.bottom-area{
+    height: 391px;
+}
