@@ -3,7 +3,7 @@
 /* 공통 셋팅을 위한 클래스 + 웹폰트 */
 
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Seymour+One&family=Sunflower:wght@300&display=swap');
 /* 
     0. 메뉴 등 일반체
     font-family: 'Noto Sans KR', sans-serif;
@@ -15,6 +15,18 @@
     font-family: 'ZCOOL KuaiLe', cursive;
     4. 전체 공통체(메뉴 등)
     font-family: 'Nanum Gothic', sans-serif;
+
+  font-family: "Seymour One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-family: "Sunflower", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 */
 
 /* 전체 글자크기 */

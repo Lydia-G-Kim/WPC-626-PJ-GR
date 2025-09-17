@@ -10,6 +10,7 @@
 /* 공사중 표시 */
 body * {
     outline: 2px dashed #ccc;
+    background-color: #000;
 }
 
 /***************** 메인 CSS *****************/
@@ -49,6 +50,7 @@ body * {
 
 /* 메뉴그룹 플렉스 */
 .menu-group{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -68,17 +70,30 @@ body * {
 .gnb-menu ul{
     font-size: 1.8rem;
     gap: 3.2rem;
+    
+}
+/* .gnb-menu ul > li >article{
+    font-size: 1.1rem;
+    gap: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+} */
 
+.gnb-menu ul a{
+    color: #fff;
+    font-family: "Alfa Slab One", serif;
 }
 
 /* 서브메뉴 */
 .sub-menu {
     position: absolute;
     left: 0;
-    width: 100%;
-    padding: 5vw;
+    /* width: 100%; */
+    padding: 16px 29px 16px 19px;
     box-sizing: border-box;
     background-color: #fff;
+    border-radius: 20%;
 }
 
 /* 타이틀 바 */
@@ -91,8 +106,8 @@ body * {
 .sub-list ul{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    height: 100px;
+    flex-wrap: nowrap;
+    /* height: 100px; */
 }
 
 /***************** 1.5. 드라마파트메뉴 *****************/
