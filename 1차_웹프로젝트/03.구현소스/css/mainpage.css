@@ -10,6 +10,8 @@
 /* 공사중 표시 */
 body * {
     outline: 2px dashed #ccc;
+}
+body > * {
     background-color: #000;
 }
 
@@ -20,7 +22,7 @@ body * {
 .intro-area{
     overflow: hidden;
 }
-#infro-ticket-area {
+#intro-ticket-area {
     position: relative;
     height: 100vh;
     background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png) no-repeat center /cover;
@@ -61,7 +63,7 @@ body * {
 .logo-box{    
     width: 126px;
     text-align: center;
-    padding: 25px 0;
+    padding: 43px 0;
 }
 
 /* 메뉴박스 */
@@ -106,9 +108,17 @@ body * {
     font-family: "Alfa Slab One", serif;
 }
 
+.gnb-menu ul article a{
+    color: #000000;
+    font-family: "Alfa Slab One", serif;
+}
+
+
+
 /* 서브메뉴 */
 .sub-menu {
     position: absolute;
+    top: 90px;
     left: 0;
     /* width: 100%; */
     padding: 16px 29px 16px 19px;
