@@ -144,14 +144,33 @@ body > * {
 /***************** 1.5. 드라마파트메뉴 *****************/
 /***************** 2. 메인영역 *****************/
 #main-area{
-    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png) no-repeat center /cover;
-    object-fit: fill
+    position: relative;
 }
 
 /***************** 2-1. 팬텀 3D 영역 *****************/
 
 /* 3d-img 박스 */
+.b-part {
+    position: absolute;
+    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png) no-repeat center /cover;
+    object-fit: fill;
+    width: 1940px;
+    height: 2960px;
+    /* 이미지 중간에 위치 */
+    top: 43%;
+    left: 50%;
+    translate: -50% -50%;
+    /* 이미지 필터 사용해서 어둡게 만들기 */
+    filter: brightness(.5);
+}
 
+.d-img{
+    position: absolute;
+    top: 7%;
+    /* 이미지 가운데 위치 */
+    left: 50%;
+    translate: -50% -50%;
+}
 
 
 /***************** 2-2. 캐릭터영역 *****************/
