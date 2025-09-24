@@ -41,17 +41,17 @@ body{
 
 /********* 공통 클래스 *********/
 /* 임시표시타이틀 */
-/* .temp-tit{
+.temp-tit{
     position: absolute;
     font-size: min(3vmax,43px);
     color: #ccc;
     width: 1920px;
-    max-width: 100%; */
+    max-width: 100%;
     /* 최대 가로크기를 100%로 설정하면 부모박스가 width크기보다 작아질 때 100% 채우기를 유지하게 된다! */
-    /* text-align: center;
+    text-align: center;
     padding: 3vh 0;
     background-color: #0000007a;
-} */
+}
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
