@@ -34,7 +34,6 @@ body > * {
     left: 50%;
     translate: -50% -50%;
     max-width: 1600px;
-    aspect-ratio: 1600/730;
 
 }
 .ticket-img img{
@@ -42,6 +41,25 @@ body > * {
     height: 100%;
 }
 
+.arw_left {
+    /* 티켓 이미지 가로기준 중간, 세로기준 왼쪽에 화살표 위치 */
+    position: absolute;
+    padding: 0 0 0 150px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.arw_right{
+    /* 오른쪽에 위치 */
+    
+}
 
 
 /***************** 1. 상단영역 *****************/
@@ -145,6 +163,7 @@ body > * {
 /***************** 2. 메인영역 *****************/
 #main-area{
     position: relative;
+    height: 4200px;
 }
 
 /***************** 2-1. 팬텀 3D 영역 *****************/
@@ -152,16 +171,17 @@ body > * {
 /* 3d-img 박스 */
 .b-part {
     position: absolute;
-    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png) no-repeat center /cover;
+    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png) no-repeat center top/130%;
     object-fit: fill;
     width: 1940px;
-    height: 2960px;
+    max-width: 100%;
+    height: 3378px;
     /* 이미지 중간에 위치 */
-    top: 43%;
+    top: 40%;   
     left: 50%;
     translate: -50% -50%;
     /* 이미지 필터 사용해서 어둡게 만들기 */
-    filter: brightness(.5);
+    filter: brightness(.5); 
 }
 
 .d-img{
@@ -170,16 +190,37 @@ body > * {
     /* 이미지 가운데 위치 */
     left: 50%;
     translate: -50% -50%;
+    z-index: 99;
 }
 
 
 /***************** 2-2. 캐릭터영역 *****************/
 .cat-part{
-    height: 188px;
+    position: absolute;
+    top: 15vw;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
 }
+
+.cat-part img{
+    width: 100%;
+    height: 100%;
+    /* 이미지 top 부분에서 맞춰서 보이게하기 */
+    object-fit: cover;
+    /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+    object-position: top;
+}
+
 /***************** 2-3. 드라마소개영역 *****************/
-.intro-part{
-    height: 500px;
+.cas-part {
+    position: absolute;
+    display: flex;
+    gap: 50px;
+    /* 이미지 오른쪽 정렬 */
+    left: 50%;;
+    top: 82vw;
+    width: 100%;
 }
 /***************** 2-4. 미리보기영역 *****************/
 .view-part{
