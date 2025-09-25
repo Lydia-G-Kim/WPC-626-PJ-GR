@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./css/mainpage.css" />
   </head>
   <body>
+    <!-- Google Model Viewer 라이브러리 불러오기 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     <!-- 0-0. 인트로 영역 -->
     <div id="intro-area">
             <section class="intro-box">
@@ -129,6 +132,15 @@
             </div>
         </article>
         
+        <!-- 3D 모델 삽입 -->
+         <div class="threed_model">
+          <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
+              alt="3D 모델"
+              auto-rotate
+              camera-controls
+              style="width: 500px; height: 500px;">
+          </model-viewer>
+        </div>
           
           
                    
