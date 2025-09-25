@@ -7,9 +7,13 @@
 /* 12그리드 CSS */
 @import url(./grid_12_flex.css);
 
+body{
+    overflow-x: hidden;
+}
 /* 공사중 표시 */
 body * {
     outline: 2px dashed #ccc;
+    
 }
 body > * {
     background-color: #000;
@@ -212,8 +216,8 @@ body > * {
     object-position: top;
 }
 
-/***************** 2-3. 드라마소개영역 *****************/
-.cas-part {
+/***************** 2-3. 캐스팅보드영역 *****************/
+.cas-box {
     position: absolute;
     display: flex;
     gap: 50px;
@@ -222,23 +226,38 @@ body > * {
     top: 82vw;
     width: 100%;
 }
+
+/* 질문 : 캐스팅보드 사진 사이즈도 보이는 영역으로 맞추기 */
+
+.cas-box li{
+    font-size: 2vw;
+    font-family: "돋움", serif;
+    font-weight: bold;
+    color: #000000;
+    list-style: none;
+    text-align: center;
+    -webkit-text-stroke: 1px #000000;
+    background-color: #ffffff4b;
+}
+
+
 /***************** 2-4. 미리보기영역 *****************/
-.view-part{
+/* .view-part{
     height: 660px;
-}
+} */
 /***************** 2-5. 현장포토영역 *****************/
-.real-part{
+/* .real-part{
     height: 906px;
-}
+} */
 /***************** 2-6. 대표포스터영역 *****************/
-.poster-part{
+/* .poster-part{
     height: 654px;
-}
+} */
 /***************** 2-7. 최신동영상영역 *****************/
-.video-part{
+/* .video-part{
     height: 409px;
-}
+} */
 /***************** 3. 하단영역 *****************/
-.bottom-area{
+/* .bottom-area{
     height: 391px;
-}
+} */
