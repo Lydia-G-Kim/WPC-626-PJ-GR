@@ -7,116 +7,116 @@
 /* 12그리드 CSS */
 @import url(./grid_12_flex.css);
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed #ccc;
-    
+  outline: 2px dashed #ccc;
 }
 body > * {
-    background-color: #000;
+  background-color: #000;
 }
 
 /***************** 메인 CSS *****************/
 
 /************** 0. 인트로 영역 **************/
 /* 상단영역 인트로 박스 : 평소에는 보이지 않고, 마우스 오버 시 보임 */
-.intro-area{
-    overflow: hidden;
+.intro-area {
+  overflow: hidden;
 }
 #intro-ticket-area {
-    position: relative;
-    height: 100vh;
-    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png) no-repeat center /cover;
+  position: relative;
+  height: 100vh;
+  background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
+    no-repeat center / cover;
 }
 
-.ticket{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    max-width: 1600px;
-
+.ticket {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  max-width: 1600px;
 }
-.ticket-img img{
-    width: 100%;
-    height: 100%;
+.ticket-img img {
+  width: 100%;
+  height: 100%;
 }
 
 .arw_left {
-    /* 티켓 이미지 가로기준 중간, 세로기준 왼쪽에 화살표 위치 */
-    position: absolute;
-    padding: 0 0 0 150px;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
+  /* 티켓 이미지 가로기준 중간, 세로기준 왼쪽에 화살표 위치 */
+
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 10%;
 }
 
-.arw_right{
-    /* 오른쪽에 위치 */
-    
+.arw_right {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: 10%;
+  /* 오른쪽에 위치 */
 }
-
 
 /***************** 1. 상단영역 *****************/
 /* 상단영역 최상위 부모박스 */
-#top-area{    
-    position: relative;
-    /* 상단영역이 항상위! */
-    z-index: 9999;
+#top-area {
+  position: relative;
+  /* 상단영역이 항상위! */
+  z-index: 9999;
 }
-.top-area{
-    height: 122px;
+.top-area {
+  height: 122px;
 }
 
 /* 상단영역 플렉스 부모박스 */
-.top-area .cont-box{
-    justify-content: space-between;
+.top-area .cont-box {
+  justify-content: space-between;
 }
 /* 로고박스 */
-.logo-box{    
-    width: 126px;
-    text-align: center;
-    padding: 43px 0;
+.logo-box {
+  width: 126px;
+  text-align: center;
+  padding: 43px 0;
 }
 
 /* 메뉴박스 */
-.menu-box{
-    padding-right: 10px;
+.menu-box {
+  padding-right: 10px;
 }
 
 /* 메뉴그룹 플렉스 */
-.menu-group{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-evenly;
-    height: 100%;
+.menu-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 100%;
 }
 /* 상단영역 메뉴 공통 플렉스 */
-.menu-group ul{
-    display: flex;
+.menu-group ul {
+  display: flex;
 }
 /* 탑메뉴 */
-.top-menu ul{
-    font-size: 1.6rem;
-    gap: 2rem;
+.top-menu ul {
+  font-size: 1.6rem;
+  gap: 2rem;
 }
 /* GNB메뉴 */
-.gnb-menu ul{
-    font-size: 1.8rem;
-    gap: 3.2rem;
-    
+.gnb-menu ul {
+  font-size: 1.8rem;
+  gap: 3.2rem;
 }
+
+/* 상위 메뉴 li오버시 a요소 글자 빨간색 */
+.gnb-menu > ul > li:hover > a {
+  color: #f00;
+}
+
 /* .gnb-menu ul > li >article{
     font-size: 1.1rem;
     gap: 1.3rem;
@@ -125,148 +125,251 @@ body > * {
     flex-wrap: nowrap;
 } */
 
-.gnb-menu ul a{
-    color: #fff;
-    font-family: "Alfa Slab One", serif;
+.gnb-menu ul a {
+  color: #fff;
+  font-family: "Alfa Slab One", serif;
 }
 
-.gnb-menu ul article a{
-    color: #000000;
-    font-family: "Alfa Slab One", serif;
+.gnb-menu ul article a {
+  color: #000000;
+  font-family: "Alfa Slab One", serif;
 }
-
-
 
 /* 서브메뉴 */
 .sub-menu {
-    position: absolute;
-    top: 90px;
-    left: 0;
-    /* width: 100%; */
-    padding: 16px 29px 16px 19px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 20%;
+  position: absolute;
+  top: 90px;
+  left: 0;
+  /* width: 100%; */
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 20%;
+
+  /* 배경색은 속박스인 패딩박스에 준다! */
+  /* background-color: #fff; -> 삭제 */
+
+  /* 서브메뉴를 숨기기위해 넘치는 자식 숨기기설정 */
+  overflow: hidden;
+  /* 높이값을 0으로 하면 자식요소가 숨겨짐!
+  -> 단, 여기에 위아래 패딩을 줄 경우 숨겨지지 않는다! */
+  max-height: 0;
+  /* 처음에 최대높이값 셋팅필수! 그래야 트랜지션 먹음! */
+
+  /* 트랜지션 */
+  transition: 0.4s ease-out;
+}
+
+.sub-list-padding-box {
+  padding: 16px 29px 16px 19px;
+}
+/* 부모 li에 마우스 오버시 .sub-menu 높이값 변경하기 */
+.gnb-menu > ul > li:hover .sub-menu {
+  max-height: 400px;
+  /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
+    오버시 높이값이 내용만큼만 커지게 된다! */
+}
+
+/* 질문 : 하위 메뉴 관련
+    1. 마우스 오버 전 안보이기
+    2. 마우스 오버 시 해당 메뉴 red 로 변경
+    3. 마우스 클릭 이벤트 변경 필요 */
+
+/* 패딩만 내부에 다른 블록요소를 사용함!
+-> 자식요소 숨기기 부모박스엔 패딩을 줄 수 없다! */
+.padding-box {
+  padding: 5vw;
+  /* li에서 25px 떨어져서 하단 보더가 보이게 함 */
+  margin-top: 25px;
+  /* 배경색은 여기에! */
+  background-color: white;
 }
 
 /* 타이틀 바 */
-.title-bar{
-    display: flex;
-    justify-content: space-between;
+.title-bar {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* 서브리스트 ul */
-.sub-list ul{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* height: 100px; */
+.sub-list ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* height: 100px; */
+  font-size: 1.1rem;
+  gap: 1.3rem;
+  background-color: #fff;
+  color: #000;
 }
 
 /***************** 1.5. 드라마파트메뉴 *****************/
 /***************** 2. 메인영역 *****************/
-#main-area{
-    position: relative;
-    height: 4200px;
+#main-area {
+  position: relative;
+  aspect-ratio: 1920 / 4200;
 }
 
 /***************** 2-1. 팬텀 3D 영역 *****************/
 
 /* 3d-img 박스 */
 .b-part {
-    position: absolute;
-    background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png) no-repeat center top/130%;
-    object-fit: fill;
-    width: 1940px;
-    max-width: 100%;
-    height: 3378px;
-    /* 이미지 중간에 위치 */
-    top: 40%;   
-    left: 50%;
-    translate: -50% -50%;
-    /* 이미지 필터 사용해서 어둡게 만들기 */
-    filter: brightness(.5); 
+  position: absolute;
+  background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)
+    no-repeat center top/130%;
+  object-fit: fill;
+  width: 1940px;
+  max-width: 100%;
+  height: 100%;
+  /* 이미지 중간에 위치 */
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  /* 이미지 필터 사용해서 어둡게 만들기 */
+  filter: brightness(0.5);
 }
 
-.d-img{
+section.b-part::after {
+    content: '';
     position: absolute;
-    top: 7%;
-    /* 이미지 가운데 위치 */
-    left: 50%;
-    translate: -50% -50%;
-    z-index: 99;
-}
-
-
-/***************** 2-2. 캐릭터영역 *****************/
-.cat-part{
-    position: absolute;
-    top: 15vw;
-    left: 50%;
-    translate: -50% 0;
-    width: 100%;
-}
-
-.cat-part img{
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    /* 이미지 top 부분에서 맞춰서 보이게하기 */
-    object-fit: cover;
-    /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
-    object-position: top;
+    background-image: linear-gradient(to bottom, transparent, #000000a6 10%, transparent 20%, #ffffff8a 30%, transparent);
+}
+
+.d-img {
+  position: absolute;
+  top: 7%;
+  /* 이미지 가운데 위치 */
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 99;
+}
+
+/***************** 2-2. 캐릭터영역 *****************/
+.cat-part {
+  position: absolute;
+  top: 15vw;
+  left: 50%;
+  translate: -50% 0;
+  width: 100%;
+}
+
+.cat-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
 }
 
 /***************** 2-3. 캐스팅보드영역 *****************/
 .cas-box {
-    position: absolute;
-    display: flex;
-    gap: 50px;
-    /* 이미지 오른쪽 정렬 */
-    left: 50%;;
-    top: 82vw;
-    width: 100%;
+  position: absolute;
+  display: flex;
+  gap: 50px;
+  /* 이미지 오른쪽 정렬 */
+  left: 45%;
+  top: 75vw;
+  width: 60vw;
+}
+.cas-box img {
+  width: 100%;
 }
 
 /* 질문 : 캐스팅보드 사진 사이즈도 보이는 영역으로 맞추기 */
+/* 질문 : 사진의 사이즈가 계속 달라지는 것이 문제인 것으로 보임
+            -> main에 픽스되어서 메인이 줄어들때 같이 줄어들게 하고 싶음 */
 
-.cas-box li{
-    font-size: 2vw;
-    font-family: "돋움", serif;
-    font-weight: bold;
-    color: #000000;
-    list-style: none;
-    text-align: center;
-    -webkit-text-stroke: 1px #000000;
-    background-color: #ffffff4b;
+.cas-box li {
+  font-size: 2vw;
+  font-family: "돋움", serif;
+  font-weight: bold;
+  color: #000000;
+  list-style: none;
+  text-align: center;
+  -webkit-text-stroke: 1px #000000;
+  /* background-color: #ffffff4b; */
 }
 
 .modeling {
+  /* 질문 : 크기 키우고 싶음 */
   position: absolute;
+  top: 70vw;
   width: 100%;
   height: 100%;
-  margin: 0 auto;          
+  margin: 0 auto;
   /* 가운데 정렬 */
   display: block;
 }
 
-
 /***************** 2-4. 미리보기영역 *****************/
-/* .view-part{
-    height: 660px;
-} */
-/***************** 2-5. 현장포토영역 *****************/
-/* .real-part{
-    height: 906px;
-} */
-/***************** 2-6. 대표포스터영역 *****************/
-/* .poster-part{
-    height: 654px;
-} */
-/***************** 2-7. 최신동영상영역 *****************/
-/* .video-part{
-    height: 409px;
-} */
+.pcat-part {
+  position: absolute;
+  top: 90vw;
+  left: 50%;
+  translate: -50% 0;
+  width: 100%;
+}
+
+.pcat-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+/***************** 2-5. 팬텀 문구영역 *****************/
+.mu-part {
+  position: absolute;
+  top: 145vw;
+  left: 50%;
+  translate: -50% 0;
+  width: 50%;
+}
+
+.mu-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+/***************** 2-6. 팬텀하단글자 영역 *****************/
+.bphantom-part {
+  position: absolute;
+  top: 155vw;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.bphantom img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
 /***************** 3. 하단영역 *****************/
-/* .bottom-area{
-    height: 391px;
-} */
+#bottom-area {
+  position: relative;
+  height: 400px;
+}
+.bottom-area {
+  height: 400px;
+}
+.bottom-area img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+
+/* 질문 : 이미지 왜 안보이는지 */
