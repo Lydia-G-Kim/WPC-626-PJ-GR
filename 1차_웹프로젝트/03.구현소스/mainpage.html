@@ -9,7 +9,9 @@
   </head>
   <body>
     <!-- Google Model Viewer 라이브러리 불러오기 -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
 
     <!-- 0-0. 인트로 영역 -->
     <div id="intro-area">
@@ -144,17 +146,18 @@
         </article>
         
         <!-- 3D 모델 삽입 -->
-         <section class="threed_model">
-          <div class="modeling">
-          <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
-              alt="3D 모델"
-              auto-rotate
-              camera-controls
-              style="width: 500px; height: 500px;">
-          </model-viewer>
-        </div>
-        </section>                   
-        </section>
+  <section class="threed_model">
+    <div class="modeling">
+      <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
+                    alt="3D 모델"
+                    auto-rotate
+                    rotation-per-second="90deg"
+                    auto-rotate-delay="0"
+                    camera-controls
+                    style="width: 750px; height: 1000px;">
+      </model-viewer>
+    </div>
+  </section>
 
         <!-- 2-4. 팬텀캐릭터 영역 -->
         <section class="pcat-part inbox">

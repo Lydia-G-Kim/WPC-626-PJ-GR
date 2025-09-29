@@ -206,7 +206,7 @@ body > * {
 /***************** 2. 메인영역 *****************/
 #main-area {
   position: relative;
-  aspect-ratio: 1920 / 4200;
+  aspect-ratio: 1920 / 3800;
 }
 
 /***************** 2-1. 팬텀 3D 영역 *****************/
@@ -241,7 +241,6 @@ section.b-part::after {
 .d-img {
   position: absolute;
   top: 7%;
-  /* 이미지 가운데 위치 */
   left: 50%;
   translate: -50% -50%;
   z-index: 99;
@@ -272,7 +271,7 @@ section.b-part::after {
   gap: 50px;
   /* 이미지 오른쪽 정렬 */
   left: 45%;
-  top: 75vw;
+  top: 80vw;
   width: 60vw;
 }
 .cas-box img {
@@ -297,7 +296,7 @@ section.b-part::after {
 .modeling {
   /* 질문 : 크기 키우고 싶음 */
   position: absolute;
-  top: 70vw;
+  top: 63vw;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -308,7 +307,7 @@ section.b-part::after {
 /***************** 2-4. 미리보기영역 *****************/
 .pcat-part {
   position: absolute;
-  top: 90vw;
+  top: 105vw;
   left: 50%;
   translate: -50% 0;
   width: 100%;
@@ -325,10 +324,10 @@ section.b-part::after {
 /***************** 2-5. 팬텀 문구영역 *****************/
 .mu-part {
   position: absolute;
-  top: 145vw;
+  top: 170vw;
   left: 50%;
   translate: -50% 0;
-  width: 50%;
+  width: 50%
 }
 
 .mu-part img {
@@ -342,7 +341,7 @@ section.b-part::after {
 /***************** 2-6. 팬텀하단글자 영역 *****************/
 .bphantom-part {
   position: absolute;
-  top: 155vw;
+  top: 185vw;
   left: 50%;
   translate: -50% 0;
 }
