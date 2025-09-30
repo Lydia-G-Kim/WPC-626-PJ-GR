@@ -9,13 +9,11 @@
 
 body {
   overflow-x: hidden;
+  background-color: #000;
 }
 /* 공사중 표시 */
 body * {
   outline: 2px dashed #ccc;
-}
-body > * {
-  background-color: #000;
 }
 
 /***************** 메인 CSS *****************/
@@ -132,13 +130,13 @@ body > * {
 
 .gnb-menu ul article a {
   color: #000000;
-  font-family: "Alfa Slab One", serif;
+  font-family: "Alfa Slab One",'맑은 고딕', serif;
 }
 
 /* 서브메뉴 */
 .sub-menu {
   position: absolute;
-  top: 90px;
+  /* top: 90px; */
   left: 0;
   /* width: 100%; */
   box-sizing: border-box;
@@ -157,6 +155,7 @@ body > * {
 
   /* 트랜지션 */
   transition: 0.4s ease-out;
+  white-space: nowrap;
 }
 
 .sub-list-padding-box {
@@ -297,8 +296,6 @@ section.b-part::after {
   /* 질문 : 크기 키우고 싶음 */
   position: absolute;
   top: 63vw;
-  width: 100%;
-  height: 100%;
   margin: 0 auto;
   /* 가운데 정렬 */
   display: block;
@@ -357,18 +354,72 @@ section.b-part::after {
 /***************** 3. 하단영역 *****************/
 #bottom-area {
   position: relative;
-  height: 400px;
+  width: 1940px;
+  margin: 0 auto;
 }
-.bottom-area {
-  height: 400px;
+
+
+/* 바탕 빨간 천 배경 */
+.footer{
+  background: url("../../01.자료수집/img/팬텀관련/images/images/하단영역_04.png") center/cover no-repeat;
+  color:#fff;
 }
-.bottom-area img {
-  width: 100%;
-  height: 100%;
-  /* 이미지 top 부분에서 맞춰서 보이게하기 */
-  object-fit: cover;
-  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
-  object-position: top;
+.footer-wrap{
+  /* 요청한 고정 폭 */
+  width:1940px;  
+  /* 더 넓어지지 않게 */            
+  max-width:1940px;          
+  /* 가운데 정렬 */
+  margin:0 auto;  
+  /* 위/옆/아래 여백 */         
+  padding:48px 56px 72px;
+  box-sizing:border-box;
+  min-height: 360px;
 }
+
+/* 상단: 좌측 로고 + 우측 주소 텍스트 */
+.footer-top{
+  display:flex;
+  align-items:flex-start;
+  gap:36px;
+}
+.footer__logo img{ 
+  height:86px;
+}
+.corp-info{
+  font-size:16px;
+  font-weight:800;
+  line-height:1.35;
+  letter-spacing:0.2px;
+  min-width: 1250px;
+}
+
+/* 중간 정책 라인 */
+.policy-line{
+  margin:24px 0 40px;
+  font-size:16px;
+  font-weight:800;
+}
+
+/* 우측 하단 SNS 아이콘 – 절대 배치로 정확히 고정 */
+.sns-list{
+  position: absolute;
+  right: 72px;
+  bottom: 56px;
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sns-list li img{
+  display: block;
+  /* 원형 아이콘 크기 */
+  width:108px;
+  height:108px;     
+  box-sizing:border-box;
+}
+
+
 
 /* 질문 : 이미지 왜 안보이는지 */
