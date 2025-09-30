@@ -3,7 +3,7 @@
 /* 공통 셋팅을 위한 클래스 + 웹폰트 */
 
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Seymour+One&family=Sunflower:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Black+Han+Sans&family=Seymour+One&family=Sunflower:wght@300&display=swap');
 /* 
     0. 메뉴 등 일반체
     font-family: 'Noto Sans KR', sans-serif;
@@ -36,7 +36,7 @@ html{
 }
 body{
     /* 글자체 */
-    font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
+    font-family: "Noto Sans KR", "Black Han Sans",Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }
 
 /********* 공통 클래스 *********/
