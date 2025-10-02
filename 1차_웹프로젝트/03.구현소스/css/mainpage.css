@@ -9,11 +9,40 @@
 
 body {
   overflow-x: hidden;
-  background-color: #000;
+  background-color: #000;  
+  cursor: none;
 }
 /* 공사중 표시 */
 body * {
   outline: 2px dashed #ccc;
+}
+
+/* 커서 전체 */
+.custom-cursor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 6px;       
+  will-change: transform;
+  transform: translate3d(0,0,0);
+}
+
+.custom-cursor img{
+  user-select: none;
+  pointer-events: none;
+}
+.cursor-img {
+  width: 24px;
+  height: auto;
+}
+/* 꼬리 (EMK 이미지) */
+.cursor-tail {
+  width: 40px;
+  height: auto;
 }
 
 /***************** 메인 CSS *****************/
@@ -59,6 +88,55 @@ body * {
   translate: 0 -50%;
   right: 10%;
   /* 오른쪽에 위치 */
+}
+
+/* 버튼 공통 스타일 */
+.ticket-btns {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px; /* 버튼 간격 */
+}
+
+.ticket-btns .btn {
+  /* 아이콘 + 텍스트 정렬 */
+  display: flex;   
+  /* 세로 가운데 정렬 */             
+  align-items: center;          
+  gap: 8px;  
+  /* 아이콘과 텍스트 간격 */                   
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* 아이콘 크기 */
+.ticket-btns .btn img {
+  /* 원하는 크기로 조정 */
+  width: 20px;   
+  height: auto;
+}
+
+/* 빨간색 예매하기 버튼 */
+.ticket-btns .btn.reserve {
+  background: #e60000;
+}
+.ticket-btns .btn.reserve:hover {
+  background: #b30000;
+}
+
+/* 검정색 상세보기 버튼 */
+.ticket-btns .btn.detail {
+  background: #111;
+}
+.ticket-btns .btn.detail:hover {
+  background: #333;
 }
 
 /***************** 1. 상단영역 *****************/

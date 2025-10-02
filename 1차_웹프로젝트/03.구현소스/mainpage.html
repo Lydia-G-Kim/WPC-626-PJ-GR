@@ -6,12 +6,18 @@
     <title>EMK뮤지컬컴퍼니 EMK MUSICAL COMPANY</title>
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/mainpage.css" />
+    <!-- 메인 JS -->
+    <script defer src="./js/mainpage.js"></script>
   </head>
   <body>
     <!-- Google Model Viewer 라이브러리 불러오기 -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-
+  <!-- 마우스 커서 변경 -->
+    <div class="custom-cursor">
+      <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/마우스.png" class="cursor-img" alt="cursor">
+      <img src="/1차_웹프로젝트/01.자료수집/img/로고/emk_logo_수정.png" class="cursor-tail" alt="로고">
+    </div>
 
     <!-- 0-0. 인트로 영역 -->
     <div id="intro-area">
@@ -37,7 +43,18 @@
             <div class="arw_right">
               <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/화살표_팬텀_R.png" alt="오른쪽화살표">
             </div>
-            
+            <!-- 버튼 영역 -->
+            <div class="ticket-btns">
+              <a href="#" class="btn reserve">
+                <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/티켓 픽토그램_최종.png" alt="티켓">
+                예매하기
+              </a>
+              <a href="#" class="btn detail">
+                <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/돋보기-픽토그램_제작.png" alt="돋보기">
+                상세보기
+              </a>
+            </div>
+                        
         </section>
       </header>
         
@@ -187,18 +204,18 @@
         </article>
         
         <!-- 3D 모델 삽입 -->
-  <section class="threed_model">
-    <div class="modeling">
-      <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
-                    alt="3D 모델"
-                    auto-rotate
-                    rotation-per-second="90deg"
-                    auto-rotate-delay="0"
-                    camera-controls
-                    style="width: 750px; height: 1000px;">
-      </model-viewer>
-    </div>
-  </section>
+          <section class="threed_model">
+            <div class="modeling">
+              <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
+                            alt="3D 모델"
+                            auto-rotate
+                            rotation-per-second="90deg"
+                            auto-rotate-delay="0"
+                            camera-controls
+                            style="width: 750px; height: 1000px;">
+              </model-viewer>
+            </div>
+          </section>
 
         <!-- 2-4. 팬텀캐릭터 영역 -->
         <section class="pcat-part inbox">
@@ -251,5 +268,7 @@
     </div>
   </footer>
 </div>
+
+    
   </body>
 </html>
