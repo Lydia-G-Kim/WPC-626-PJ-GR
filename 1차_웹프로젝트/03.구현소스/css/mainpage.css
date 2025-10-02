@@ -23,6 +23,8 @@ body * {
 .intro-area {
   overflow: hidden;
 }
+
+/************** 0. 최상단 영역 **************/
 #intro-ticket-area {
   position: relative;
   height: 100vh;
