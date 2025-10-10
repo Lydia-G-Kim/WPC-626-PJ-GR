@@ -352,6 +352,18 @@ section.b-part::after {
   height: auto;
   display: block;
 }
+#main-area .phantom-logo.on img {
+  animation: updown-ani .5s ease-in-out infinite alternate;
+}
+
+
+@keyframes updown-ani {
+  to{
+    translate: 0 50%;
+  }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   #main-area .phantom-logo {
     transform: translate3d(-50%, 0, 0);
