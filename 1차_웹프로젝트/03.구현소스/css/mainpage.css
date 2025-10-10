@@ -9,16 +9,16 @@
 
 body {
   overflow-x: hidden;
-  background-color: #000;  
+  background-color: #000;
   cursor: none;
 }
 /* 공사중 표시 */
 body * {
-  outline: 2px dashed #ccc;
+  /* outline: 2px dashed #ccc; */
 }
 
 /* 커서 전체 */
-.custom-cursor{
+.custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
@@ -26,12 +26,12 @@ body * {
   z-index: 2147483647;
   display: flex;
   align-items: center;
-  gap: 6px;       
+  gap: 6px;
   will-change: transform;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
 }
 
-.custom-cursor img{
+.custom-cursor img {
   user-select: none;
   pointer-events: none;
 }
@@ -102,11 +102,11 @@ body * {
 
 .ticket-btns .btn {
   /* 아이콘 + 텍스트 정렬 */
-  display: flex;   
-  /* 세로 가운데 정렬 */             
-  align-items: center;          
-  gap: 8px;  
-  /* 아이콘과 텍스트 간격 */                   
+  display: flex;
+  /* 세로 가운데 정렬 */
+  align-items: center;
+  gap: 8px;
+  /* 아이콘과 텍스트 간격 */
   padding: 14px 28px;
   font-size: 18px;
   font-weight: bold;
@@ -119,7 +119,7 @@ body * {
 /* 아이콘 크기 */
 .ticket-btns .btn img {
   /* 원하는 크기로 조정 */
-  width: 20px;   
+  width: 20px;
   height: auto;
 }
 
@@ -219,14 +219,13 @@ body * {
 
 .gnb-menu ul article a {
   color: #000000;
-  font-family: "Alfa Slab One",'Black Han Sans', serif;
+  font-family: "Alfa Slab One", "Black Han Sans", serif;
 }
 
 .gnb-menu ul a.kr {
-  font-family: 'Black Han Sans','Noto Sans KR',sans-serif;
+  font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
   font-size: 1.6rem;
 }
-
 
 /* 서브메뉴 */
 .sub-menu {
@@ -262,11 +261,6 @@ body * {
   /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
     오버시 높이값이 내용만큼만 커지게 된다! */
 }
-
-/* 질문 : 하위 메뉴 관련
-    1. 마우스 오버 전 안보이기
-    2. 마우스 오버 시 해당 메뉴 red 로 변경
-    3. 마우스 클릭 이벤트 변경 필요 */
 
 /* 패딩만 내부에 다른 블록요소를 사용함!
 -> 자식요소 숨기기 부모박스엔 패딩을 줄 수 없다! */
@@ -323,22 +317,48 @@ body * {
 }
 
 section.b-part::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, transparent, #000000a6 10%, transparent 20%, #ffffff8a 30%, transparent);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000000a6 10%,
+    transparent 20%,
+    #ffffff8a 30%,
+    transparent
+  );
 }
 
-.d-img {
+/* PHANTOM 로고: 시작은 최상단, 가로 중앙 */
+#main-area .phantom-logo {
   position: absolute;
-  top: 7%;
   left: 50%;
-  translate: -50% -50%;
-  z-index: 99;
+  /* 스크롤 전 최상단 */
+  top: 0; 
+  transform: translate3d(-50%, var(--y, 0), 0);
+  /* 배경 위로 */
+  z-index: 200; 
+  /* 클릭 방해 X */
+  pointer-events: auto; 
+  will-change: transform;
 }
+#main-area .phantom-logo img {
+  /* 반응형 크기 */
+  width: clamp(360px, 38vw, 920px); 
+  height: auto;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-area .phantom-logo {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+
 
 /***************** 2-2. 캐릭터영역 *****************/
 .cat-part {
@@ -356,6 +376,50 @@ section.b-part::after {
   object-fit: cover;
   /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
   object-position: top;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  will-change: opacity;
+}
+
+/* hover 들어오면: ① 페이드인 한번 ② 곧바로 깜빡임 반복 */
+.cat-part:hover img{
+  /* 2개의 애니메이션을 겹쳐 사용:
+     - fadeIn: 0.8s 동안 opacity 0→1, 상태 유지(forwards)
+     - flicker: 0.8s 뒤(=fadeIn 끝나고)부터 무한 반복 시작  */
+  animation:
+    fadeIn 0.8s ease-out forwards,
+    flicker 1.4s linear infinite 0.8s; /* (지연 0.8s) */
+}
+
+/* ① 페이드인 */
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to  { opacity: 1; }
+}
+
+/* 깜빡임 효과 */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.4; }
+  10% { opacity: 0.8; }
+  15% { opacity: 0.2; }
+  25% { opacity: 0.9; }
+  35% { opacity: 0.5; }
+  50% { opacity: 1; }
+  65% { opacity: 0.3; }
+  80% { opacity: 0.9; }
+  90% { opacity: 0.4; }
+}
+
+/* JS에서 붙여줄 클래스 */
+.cat-part img.flickering {
+  animation: flicker 5s linear infinite;
+  opacity: 1;
+}
+
+/* 접근성: 모션 최소화 선호 시 애니메이션 비활성화 */
+@media (prefers-reduced-motion: reduce){
+  .cat-part img{ animation: none !important; opacity: 1; }
 }
 
 /***************** 2-3. 캐스팅보드영역 *****************/
@@ -372,9 +436,9 @@ section.b-part::after {
   width: 100%;
 }
 
-/* 질문 : 캐스팅보드 사진 사이즈도 보이는 영역으로 맞추기 */
-/* 질문 : 사진의 사이즈가 계속 달라지는 것이 문제인 것으로 보임
-            -> main에 픽스되어서 메인이 줄어들때 같이 줄어들게 하고 싶음 */
+/* 질문 : 
+1. 하단 영역 사이즈 자동 조정
+2. 마우스 커서 포인트 */
 
 .cas-box li {
   font-size: 2vw;
@@ -388,7 +452,6 @@ section.b-part::after {
 }
 
 .modeling {
-  /* 질문 : 크기 키우고 싶음 */
   position: absolute;
   top: 63vw;
   margin: 0 auto;
@@ -419,7 +482,7 @@ section.b-part::after {
   top: 170vw;
   left: 50%;
   translate: -50% 0;
-  width: 50%
+  width: 50%;
 }
 
 .mu-part img {
@@ -453,51 +516,51 @@ section.b-part::after {
   margin: 0 auto;
 }
 
-
 /* 바탕 빨간 천 배경 */
-.footer{
-  background: url("../../01.자료수집/img/팬텀관련/images/images/하단영역_04.png") center/cover no-repeat;
-  color:#fff;
+.footer {
+  background: url("../../01.자료수집/img/팬텀관련/images/images/하단영역_04.png")
+    center/cover no-repeat;
+  color: #fff;
 }
-.footer-wrap{
+.footer-wrap {
   /* 요청한 고정 폭 */
-  width:1940px;  
-  /* 더 넓어지지 않게 */            
-  max-width:1940px;          
+  width: 1940px;
+  /* 더 넓어지지 않게 */
+  max-width: 1940px;
   /* 가운데 정렬 */
-  margin:0 auto;  
-  /* 위/옆/아래 여백 */         
-  padding:48px 56px 72px;
-  box-sizing:border-box;
+  margin: 0 auto;
+  /* 위/옆/아래 여백 */
+  padding: 48px 56px 72px;
+  box-sizing: border-box;
   min-height: 360px;
 }
 
 /* 상단: 좌측 로고 + 우측 주소 텍스트 */
-.footer-top{
-  display:flex;
-  align-items:flex-start;
-  gap:36px;
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
 }
-.footer__logo img{ 
-  height:86px;
+.footer__logo img {
+  height: 86px;
 }
-.corp-info{
-  font-size:16px;
-  font-weight:800;
-  line-height:1.35;
-  letter-spacing:0.2px;
+.corp-info {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
   min-width: 1250px;
 }
 
 /* 중간 정책 라인 */
-.policy-line{
-  margin:24px 0 40px;
-  font-size:16px;
-  font-weight:800;
+.policy-line {
+  margin: 24px 0 40px;
+  font-size: 16px;
+  font-weight: 800;
 }
 
 /* 우측 하단 SNS 아이콘 – 절대 배치로 정확히 고정 */
-.sns-list{
+.sns-list {
   position: absolute;
   right: 72px;
   bottom: 56px;
@@ -507,14 +570,10 @@ section.b-part::after {
   margin: 0;
   padding: 0;
 }
-.sns-list li img{
+.sns-list li img {
   display: block;
   /* 원형 아이콘 크기 */
-  width:108px;
-  height:108px;     
-  box-sizing:border-box;
+  width: 108px;
+  height: 108px;
+  box-sizing: border-box;
 }
-
-
-
-/* 질문 : 이미지 왜 안보이는지 */
