@@ -13,9 +13,9 @@ body {
   cursor: none;
 }
 /* 공사중 표시 */
-body * {
-  /* outline: 2px dashed #ccc; */
-}
+/* body * {
+  outline: 2px dashed #ccc;
+} */
 
 /* 커서 전체 */
 .custom-cursor {
@@ -52,6 +52,21 @@ body * {
 .intro-area {
   overflow: hidden;
 }
+.intro-box{
+  height: 100vh;
+}
+.intro-box video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.intro-box .scroll{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  translate: -50% 0;
+}
 
 /************** 0. 최상단 영역 **************/
 #intro-ticket-area {
@@ -75,7 +90,6 @@ body * {
 
 .arw_left {
   /* 티켓 이미지 가로기준 중간, 세로기준 왼쪽에 화살표 위치 */
-
   position: absolute;
   top: 50%;
   translate: 0 -50%;
@@ -290,7 +304,6 @@ body * {
   color: #000;
 }
 
-/***************** 1.5. 드라마파트메뉴 *****************/
 /***************** 2. 메인영역 *****************/
 #main-area {
   position: relative;
@@ -299,7 +312,7 @@ body * {
 
 /***************** 2-1. 팬텀 3D 영역 *****************/
 
-/* 3d-img 박스 */
+/* 배경 이미지 박스 */
 .b-part {
   position: absolute;
   background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)
@@ -338,39 +351,35 @@ section.b-part::after {
   position: absolute;
   left: 50%;
   /* 스크롤 전 최상단 */
-  top: 0; 
+  top: 0;
   transform: translate3d(-50%, var(--y, 0), 0);
   /* 배경 위로 */
-  z-index: 200; 
+  z-index: 200;
   /* 클릭 방해 X */
-  pointer-events: auto; 
+  pointer-events: auto;
   will-change: transform;
 }
 #main-area .phantom-logo img {
   /* 반응형 크기 */
-  width: clamp(360px, 38vw, 920px); 
+  width: clamp(360px, 38vw, 920px);
   height: auto;
   display: block;
 }
 #main-area .phantom-logo.on img {
-  animation: updown-ani .5s ease-in-out infinite alternate;
+  animation: updown-ani 0.5s ease-in-out infinite alternate;
 }
 
-
 @keyframes updown-ani {
-  to{
+  to {
     translate: 0 50%;
   }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
   #main-area .phantom-logo {
     transform: translate3d(-50%, 0, 0);
   }
 }
-
-
 
 /***************** 2-2. 캐릭터영역 *****************/
 .cat-part {
@@ -394,33 +403,56 @@ section.b-part::after {
 }
 
 /* hover 들어오면: ① 페이드인 한번 ② 곧바로 깜빡임 반복 */
-.cat-part:hover img{
+.cat-part:hover img {
   /* 2개의 애니메이션을 겹쳐 사용:
      - fadeIn: 0.8s 동안 opacity 0→1, 상태 유지(forwards)
      - flicker: 0.8s 뒤(=fadeIn 끝나고)부터 무한 반복 시작  */
-  animation:
-    fadeIn 0.8s ease-out forwards,
-    flicker 1.4s linear infinite 0.8s; /* (지연 0.8s) */
+  animation: fadeIn 0.8s ease-out forwards, flicker 1.4s linear infinite 0.8s; /* (지연 0.8s) */
 }
 
 /* ① 페이드인 */
-@keyframes fadeIn{
-  from{ opacity: 0; }
-  to  { opacity: 1; }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* 깜빡임 효과 */
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  5% { opacity: 0.4; }
-  10% { opacity: 0.8; }
-  15% { opacity: 0.2; }
-  25% { opacity: 0.9; }
-  35% { opacity: 0.5; }
-  50% { opacity: 1; }
-  65% { opacity: 0.3; }
-  80% { opacity: 0.9; }
-  90% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  35% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.4;
+  }
 }
 
 /* JS에서 붙여줄 클래스 */
@@ -430,8 +462,11 @@ section.b-part::after {
 }
 
 /* 접근성: 모션 최소화 선호 시 애니메이션 비활성화 */
-@media (prefers-reduced-motion: reduce){
-  .cat-part img{ animation: none !important; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .cat-part img {
+    animation: none !important;
+    opacity: 1;
+  }
 }
 
 /***************** 2-3. 캐스팅보드영역 *****************/
@@ -448,10 +483,6 @@ section.b-part::after {
   width: 100%;
 }
 
-/* 질문 : 
-1. 하단 영역 사이즈 자동 조정
-2. 마우스 커서 포인트 */
-
 .cas-box li {
   font-size: 2vw;
   font-family: "돋움", serif;
@@ -463,21 +494,56 @@ section.b-part::after {
   /* background-color: #ffffff4b; */
 }
 
+/* 3D 모델링 */
+.threed_model{
+  position: relative;
+}
+
 .modeling {
   position: absolute;
   top: 63vw;
+  left: 10%;
   margin: 0 auto;
   /* 가운데 정렬 */
   display: block;
 }
 
-/***************** 2-4. 미리보기영역 *****************/
+/***************** 2-4. 팬텀캐릭터 영역 *****************/
 .pcat-part {
   position: absolute;
   top: 105vw;
   left: 50%;
   translate: -50% 0;
   width: 100%;
+  aspect-ratio: 1.2;
+  overflow: hidden;
+}
+
+.glitch-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/mask_er1.png)
+    no-repeat center / cover;
+}
+
+/* Glitch 초기 상태: 숨김 */
+.glitch-box {
+  opacity: 0;
+  visibility: hidden;
+  /* 페이드인 */
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+  will-change: opacity;
+}
+
+/* 한 번 나타난 뒤엔 계속 보이기 */
+.glitch-box.show {
+  opacity: 1;
+  visibility: visible;
+  /* 보일 땐 지연 제거 */
+  transition: opacity 0.45s ease; 
 }
 
 .pcat-part img {
@@ -488,6 +554,7 @@ section.b-part::after {
   /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
   object-position: top;
 }
+
 /***************** 2-5. 팬텀 문구영역 *****************/
 .mu-part {
   position: absolute;

@@ -6,60 +6,103 @@
     <title>EMK뮤지컬컴퍼니 EMK MUSICAL COMPANY</title>
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/mainpage.css" />
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 제이쿼리 UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- include plugin src -->
+    <script src="./js/mgGlitch.min.js"></script>
     <!-- 메인 JS -->
     <script defer src="./js/mainpage.js"></script>
+    <!-- Google Model Viewer 라이브러리 불러오기 -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
   </head>
   <body>
-    <!-- Google Model Viewer 라이브러리 불러오기 -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-  <!-- 마우스 커서 변경 -->
+    <!-- 마우스 커서 변경 -->
     <div class="custom-cursor">
-      <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/마우스.png" class="cursor-img" alt="cursor">
-      <img src="/1차_웹프로젝트/01.자료수집/img/로고/emk_logo_수정.png" class="cursor-tail" alt="로고">
+      <img
+        src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/마우스.png"
+        class="cursor-img"
+        alt="cursor"
+      />
+      <img
+        src="/1차_웹프로젝트/01.자료수집/img/로고/emk_logo_수정.png"
+        class="cursor-tail"
+        alt="로고"
+      />
     </div>
 
     <!-- 0-0. 인트로 영역 -->
     <div id="intro-area">
-            <section class="intro-box">
-              <p></p>
-            </section>
+      <section class="intro-box">
+        <video
+          src="/1차_웹프로젝트/01.자료수집/img/intro1.mp4"
+          autoplay
+          loop
+          muted
+          playsinline="true"
+        ></video>
+        <div class="scroll">
+          <img
+          src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/스크롤.png"
+          alt="스크롤다운"/>
+        </div>
+        
+      </section>
     </div>
-    
+
     <!-- 0. 최상단영역 -->
     <div id="intro-ticket-area">
       <header class="ti-box">
         <section class="ticket-box">
-            <div class="ticket">
-                <article class="ticket-img">
-                  <a href="#">
-                      <img src="../01.자료수집/img/팬텀관련/팬텀이미지/티켓-수정-이미지_1.png" alt="">
-                  </a>
-                </article>
-            </div>
-            <div class="arw_left">
-              <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/화살표_팬텀.png" alt="왼쪽화살표">
-            </div>
-            <div class="arw_right">
-              <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/화살표_팬텀_R.png" alt="오른쪽화살표">
-            </div>
-            <!-- 버튼 영역 -->
-            <div class="ticket-btns">
-              <a href="#" class="btn reserve">
-                <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/티켓 픽토그램_최종.png" alt="티켓">
-                예매하기
-              </a>
-              <a href="#" class="btn detail">
-                <img src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/돋보기-픽토그램_제작.png" alt="돋보기">
-                상세보기
-              </a>
-            </div>
-                        
+          <div class="ticket">
+            <article class="ticket-img">
+              <img
+                src="../01.자료수집/img/팬텀관련/팬텀이미지/티켓-수정-이미지_1.png"
+                alt=""
+              />
+            </article>
+          </div>
+          <div class="arw_left">
+            <a href="#" class="btn left">
+              <img
+                src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/화살표_팬텀.png"
+                alt="왼쪽화살표"
+              />
+            </a>
+          </div>
+          <div class="arw_right">
+            <a href="#" class="btn right">
+              <img
+                src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/화살표_팬텀_R.png"
+                alt="오른쪽화살표"
+              />
+            </a>
+          </div>
+          <!-- 버튼 영역 -->
+          <div class="ticket-btns">
+            <a href="#" class="btn reserve">
+              <img
+                src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/티켓 픽토그램_최종.png"
+                alt="티켓"
+              />
+              예매하기
+            </a>
+            <a href="#" class="btn detail">
+              <img
+                src="/1차_웹프로젝트/01.자료수집/img/기타 이미지/돋보기-픽토그램_제작.png"
+                alt="돋보기"
+              />
+              상세보기
+            </a>
+          </div>
         </section>
       </header>
-        
-     </div>
-    
+    </div>
+
     <!-- 1. 상단영역 -->
     <div id="top-area">
       <header class="top-area inbox">
@@ -70,8 +113,12 @@
           <!-- 1-1. 로고박스 -->
           <section class="logo-box">
             <h1 class="logo">
-              <a href="#">
-                <img src="../01.자료수집/img/로고/emk_logo_수정.png" alt="로고" style="width: 94px;height: 36px;">
+              <a href="#" class="btn emk">
+                <img
+                  src="../01.자료수집/img/로고/emk_logo_수정.png"
+                  alt="로고"
+                  style="width: 94px; height: 36px"
+                />
               </a>
             </h1>
           </section>
@@ -82,67 +129,72 @@
               <!-- 1-2-1. GNB메뉴 -->
               <nav class="gnb-menu">
                 <ul>
-                  <li><a href="">EMK</a>
-                  <article class="sub-menu">
-                        <div class="index">
-                            <aside class="sub-list">
-                                <div class="sub-list-padding-box">
-                                  <ul>
-                                      <li><a href="#">ABOUT US</a></li>
-                                      <li><a href="#">ABOUT CEO</a></li>
-                                      <li><a href="#">HISTORY</a></li>
-                                  </ul>
-                                </div>
-                            </aside>
-                        </div>
-                    </article>
-                  </li>
-                  <li><a href="">PRODUCTION</a>
-                  <article class="sub-menu">
-                        <div class="index">
-                            <aside class="sub-list">
-                                <div class="sub-list-padding-box">
-                                  <ul>
-                                      <li><a href="#">ORIGINAL</a></li>
-                                      <li><a href="#">LICENSE</a></li>
-                                  </ul>
-                                </div>
-                            </aside>
-                        </div>
-                    </article>
-                  </li>
-                  <li><a href="">AUDITION</a></li>
-                  <li><a href="">BOARD</a>
-                  <article class="sub-menu">
-                        <div class="index">
-                            <aside class="sub-list">
-                                <div class="sub-list-padding-box">
-                                  <ul>
-                                      <li><a href="#">NOTISE</a></li>
-                                      <li><a href="#">NEWS</a></li>
-                                  </ul>
-                                </div>
-                            </aside>
-                        </div>
-                    </article>
-                  </li>
-                  <li><a href="">SHOP</a></li>
-                  <li><a href="">RECRUIT</a>
+                  <li>
+                    <a href="" class="btn">EMK</a>
                     <article class="sub-menu">
-                        <div class="index">
-                            <aside class="sub-list">
-                                <div class="sub-list-padding-box">
-                                  <ul>
-                                      <li><a href="#" class="kr">채용 안내</a></li>
-                                      <li><a href="#" class="kr">복리후생</a></li>
-                                      <li><a href="#" class="kr">직무 정보</a></li>
-                                      <li><a href="#" class="kr">지원서 접수</a></li>
-                                  </ul>
-                                </div>
-                            </aside>
-                        </div>
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">ABOUT US</a></li>
+                              <li><a href="#" class="btn">ABOUT CEO</a></li>
+                              <li><a href="#" class="btn">HISTORY</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
                     </article>
-
+                  </li>
+                  <li>
+                    <a href="" class="btn">PRODUCTION</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">ORIGINAL</a></li>
+                              <li><a href="#" class="btn">LICENSE</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                  <li><a href="" class="btn">AUDITION</a></li>
+                  <li>
+                    <a href="" class="btn">BOARD</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">NOTISE</a></li>
+                              <li><a href="#" class="btn">NEWS</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                  <li><a href="" class="btn">SHOP</a></li>
+                  <li>
+                    <a href="" class="btn">RECRUIT</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn kr">채용 안내</a></li>
+                              <li><a href="#" class="btn kr">복리후생</a></li>
+                              <li><a href="#" class="btn kr">직무 정보</a></li>
+                              <li>
+                                <a href="#" class="btn kr">지원서 접수</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
                   </li>
                 </ul>
               </nav>
@@ -154,23 +206,26 @@
 
     <!-- 2. 메인영역 -->
     <div id="main-area">
-      
-
       <main class="main-area">
         <!-- 2-1. 팬텀 3D 영역 -->
         <section class="b-part inbox">
-            <div class="b" style="text-align: center;">
-            </div>
-          </section>
-          
-          <!-- PHANTOM 로고: 스크롤/부유 대상 -->
-          <div id="phantomLogo" class="phantom-logo">
-            <img src="../01.자료수집/img/팬텀관련/팬텀이미지/글씨 3D copy.png" alt="PHANTOM">
-          </div>
-          
+          <div class="b" style="text-align: center"></div>
+        </section>
+
+        <!-- PHANTOM 로고: 스크롤/부유 대상 -->
+        <div id="phantomLogo" class="phantom-logo">
+          <img
+            src="../01.자료수집/img/팬텀관련/팬텀이미지/글씨 3D copy.png"
+            alt="PHANTOM"
+          />
+        </div>
+
         <!-- 2-2. 캐릭터영역 -->
         <section class="cat-part inbox">
-          <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/er_1.png" alt="에릭캐릭터">
+          <img
+            src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/er_1.png"
+            alt="에릭캐릭터"
+          />
         </section>
 
         <!-- 2-3. 캐스팅보드 -->
@@ -179,95 +234,130 @@
             <div class="cas1">
               <ul>
                 <li>
-                  <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/박효신.png" alt="박효신">
+                  <img
+                    src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/박효신.png"
+                    alt="박효신"
+                  />
                 </li>
                 <li>박효신</li>
               </ul>
             </div>
-          <div class="cas2">
+            <div class="cas2">
               <ul>
                 <li>
-                  <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/카이.png" alt="카이">
+                  <img
+                    src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/카이.png"
+                    alt="카이"
+                  />
                 </li>
                 <li>카이</li>
               </ul>
             </div>
-          <div class="cas3">
+            <div class="cas3">
               <ul>
                 <li>
-                  <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/전동석.png" alt="전동석">
+                  <img
+                    src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/전동석.png"
+                    alt="전동석"
+                  />
                 </li>
                 <li>전동석</li>
               </ul>
             </div>
-        </article>
-        
+          </article>
+        </section>
+
         <!-- 3D 모델 삽입 -->
         <section class="threed_model">
           <div class="modeling">
-            <model-viewer src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
-                          alt="3D 모델"
-                          auto-rotate
-                          rotation-per-second="90deg"
-                          auto-rotate-delay="0"
-                          camera-controls
-                          style="width: 750px; height: 1000px;">
+            <model-viewer
+              src="/1차_웹프로젝트/01.자료수집/3D/Candlelit_Masquerade_0812080858_texture.glb"
+              alt="3D 모델"
+              auto-rotate
+              rotation-per-second="90deg"
+              auto-rotate-delay="0"
+              camera-controls
+              style="width: 750px; height: 1000px"
+            >
             </model-viewer>
           </div>
         </section>
 
         <!-- 2-4. 팬텀캐릭터 영역 -->
         <section class="pcat-part inbox">
-          <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/mask_er1.png" alt="가면에릭캐릭터">
+          <div class="glitch-box"></div>
+          <!-- <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/mask_er1.png" alt="가면에릭캐릭터"> -->
         </section>
 
         <!-- 2-5. 팬텀 문구영역 -->
         <section class="mu-part inbox">
-          <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/팬텀이미지/문구.png" alt="문구">
+          <img
+            src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/팬텀이미지/문구.png"
+            alt="문구"
+          />
         </section>
 
         <!-- 2-6. 팬텀하단글자 영역 -->
         <section class="bphantom-part inbox">
-          <img src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/팬텀이미지/팬텀 로고.png" alt="팬텀하단글자">
+          <img
+            src="/1차_웹프로젝트/01.자료수집/img/팬텀관련/팬텀이미지/팬텀 로고.png"
+            alt="팬텀하단글자"
+          />
         </section>
       </main>
     </div>
     <div id="bottom-area">
-  <footer class="footer">
-    <div class="footer-wrap">
+      <footer class="footer">
+        <div class="footer-wrap">
+          <!-- 상단: 로고 + 주소/정책 -->
+          <div class="footer-top">
+            <h2 class="footer__logo">
+              <img src="../01.자료수집/img/로고/emk로고.png" alt="EMK 로고" />
+            </h2>
+            <div class="corp-box">
+              <p class="corp-info">
+                5F, SUM BLDG. 176, NONHYEON-RO, GANGNAM-GU, SEOUL, KOREA
+                06296<br />
+                TEL +82 02 6391 6333 FAX +82 02 6391 6331 MAIL
+                emkmusical@emkm.co.kr<br />
+                COPYRIGHT © 2021 EMKMUSICALCOMPANY. ALL RIGHTS RESERVED BY
+                EMKMUSICAL COMPANY. LTD
+              </p>
+              <p class="policy-line">
+                PRIVACY POLICY&nbsp;&nbsp;|&nbsp;&nbsp;TERMS OF USE
+              </p>
+              <img
+                class="ent-logo"
+                src="../01.자료수집/img/로고/엔터테인먼트-2-uai-516x43.png"
+                alt="EMK ENTERTAINMENT"
+              />
+              <p></p>
+            </div>
+          </div>
 
-      <!-- 상단: 로고 + 주소/정책 -->
-      <div class="footer-top">
-        <h2 class="footer__logo">
-          <img src="../01.자료수집/img/로고/emk로고.png" alt="EMK 로고">
-        </h2>
-        <div class="corp-box">
-          <p class="corp-info">
-            5F, SUM BLDG. 176, NONHYEON-RO, GANGNAM-GU, SEOUL, KOREA 06296<br>
-            TEL +82 02 6391 6333 FAX +82 02 6391 6331 MAIL emkmusical@emkm.co.kr<br>
-            COPYRIGHT © 2021 EMKMUSICALCOMPANY. ALL RIGHTS RESERVED BY EMKMUSICAL COMPANY. LTD
-          </p>
-          <p class="policy-line">
-            PRIVACY POLICY&nbsp;&nbsp;|&nbsp;&nbsp;TERMS OF USE
-          </p>
-          <img class="ent-logo" src="../01.자료수집/img/로고/엔터테인먼트-2-uai-516x43.png" alt="EMK ENTERTAINMENT">
-          <p>
-
-          </p>
+          <!-- SNS 아이콘 -->
+          <ul class="sns-list">
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/유튜브.png"
+                alt="YouTube"
+              />
+            </li>
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/인스타.png"
+                alt="Instagram"
+              />
+            </li>
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/카톡플친.png"
+                alt="Kakao"
+              />
+            </li>
+          </ul>
         </div>
-      </div>
-
-            <!-- SNS 아이콘 -->
-      <ul class="sns-list">
-        <li><img src="../01.자료수집/img/기타 이미지/유튜브.png" alt="YouTube"></li>
-        <li><img src="../01.자료수집/img/기타 이미지/인스타.png" alt="Instagram"></li>
-        <li><img src="../01.자료수집/img/기타 이미지/카톡플친.png" alt="Kakao"></li>
-      </ul>
-
+      </footer>
     </div>
-  </footer>
-</div>
-
-    
   </body>
 </html>
