@@ -525,6 +525,13 @@ section.b-part::after {
   /* 가운데 정렬 */
   display: block;
 }
+/* 3D 요소를 강제로 크기 가로폭에 반응하며 비율유지함! */
+.modeling>* {
+    width: 30vw !important;
+    aspect-ratio: 0.7;
+    height: auto !important;
+}
+
 /* 캐스팅 액자:
 상단에서 낙하 → 제자리 → 좌상단 힌지로 흔들림 + 바닥 그림자 퍼짐 */
 
