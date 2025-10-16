@@ -234,66 +234,76 @@ $(() => {
 
 // intro 영역 스크롤 내리면 사라짐
 // 한번만 실행변수
-// let once = 0;
+let once = 1;
 
-// $(window).on("scroll", () => {
-//   console.log(window.scrollY);
-//   if (window.scrollY > 600) {
-//     if (once) return;
-//     once = 1;
+const scrollFn = () => {
+  $(window).on("scroll", () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 600) {
+      if (once) return;
+      once = 1;
 
-    
-//     // 인트로 영역 사라짐
-//     $("#intro-area").animate(
-//       { height: "0" },
-//       1200,
-//       "easeInOutCubic",
-//       function () {
-//         // 애니메이션 완료 후 삭제
-//         $(this).remove();
-//       }
-//     );
-
-
-//     $("html, body").animate({ scrollTop: 0 }, 1200, () => {
-//       $(window).off("scroll");
-//     });
-//   } /// if //////
-// }); //// over /////
-
-$(function () {
-  const $intro = $("#intro-area");
-  const $htmlBody = $("html, body");
-  const $ticket = $("#intro-ticket-area");
-  let once = false;
-
-  // ✅ 새로고침 시 항상 인트로 초기화
-  $intro.removeClass("fade-out").css({
-    display: "block",
-    opacity: 1,
-    height: "100vh",
-  });
-  $htmlBody.scrollTop(0); // 항상 맨 위로
-
-  // ✅ 스크롤 시 애니메이션 트리거
-  $(window).on("scroll", function () {
-    if (window.scrollY > 200 && !once) {
-      once = true;
-
-      // 1) 인트로 영상 서서히 사라짐
-      $intro.addClass("fade-out");
-
-      // 2) 사라지는 동안 자연스럽게 티켓 영역으로 스크롤 이동
-      $("html, body").animate(
-        { scrollTop: $ticket.offset().top },
+      // 인트로 영역 사라짐
+      $("#intro-area").animate(
+        { height: "0" },
         2000,
-        "swing",
+        "easeOutBack",
         function () {
-          // 스크롤 이벤트 한 번만 작동
-          $(window).off("scroll");
+          // 애니메이션 완료 후 삭제
+          $(this).remove();
         }
       );
-    }
-  });
-});
 
+      $("html, body").animate({ scrollTop: 0 }, 2000,  () => {
+        $(window).off("scroll");
+      });
+    } /// if //////
+  }); //// over /////
+}; ///////// scrollFn //////////
+
+$(window).off("scroll");
+setTimeout(() => {
+  window.scrollTo(0, 0);
+
+  setTimeout(() => { 
+    once = 0;
+    scrollFn();
+
+  }, 500);
+}, 400);
+
+// $(function () {
+//   const $intro = $("#intro-area");
+//   const $htmlBody = $("html, body");
+//   const $ticket = $("#intro-ticket-area");
+//   let once = false;
+
+//   // ✅ 새로고침 시 항상 인트로 초기화
+//   $intro.removeClass("fade-out").css({
+//     display: "block",
+//     opacity: 1,
+//     height: "100vh",
+//   });
+//   $htmlBody.scrollTop(0); // 항상 맨 위로
+
+//   // ✅ 스크롤 시 애니메이션 트리거
+//   $(window).on("scroll", function () {
+//     if (window.scrollY > 200 && !once) {
+//       once = true;
+
+//       // 1) 인트로 영상 서서히 사라짐
+//       $intro.addClass("fade-out");
+
+//       // 2) 사라지는 동안 자연스럽게 티켓 영역으로 스크롤 이동
+//       $("html, body").animate(
+//         { scrollTop: $ticket.offset().top },
+//         2000,
+//         "swing",
+//         function () {
+//           // 스크롤 이벤트 한 번만 작동
+//           $(window).off("scroll");
+//         }
+//       );
+//     }
+//   });
+// });
