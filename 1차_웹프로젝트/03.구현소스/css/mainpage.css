@@ -67,6 +67,8 @@ body {
   left: 50%;
   translate: -50% 0;
 }
+
+/* 하단 내용 추가 */
 #intro-area {
   position: relative;
   height: 100vh;
@@ -81,7 +83,7 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-
+/* 상단 내용 추가 */
 
 /************** 0. 최상단 영역 **************/
 #intro-ticket-area {

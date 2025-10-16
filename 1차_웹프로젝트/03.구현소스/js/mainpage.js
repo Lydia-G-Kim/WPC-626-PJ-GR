@@ -261,21 +261,26 @@ $(() => {
 //   } /// if //////
 // }); //// over /////
 
+
+
+
+// 하단 내용 추가////////////////////////////////////
 $(function () {
   const $intro = $("#intro-area");
   const $htmlBody = $("html, body");
   const $ticket = $("#intro-ticket-area");
   let once = false;
 
-  // ✅ 새로고침 시 항상 인트로 초기화
+  // 새로고침 시 항상 인트로 초기화
   $intro.removeClass("fade-out").css({
     display: "block",
     opacity: 1,
     height: "100vh",
   });
-  $htmlBody.scrollTop(0); // 항상 맨 위로
+  // 항상 맨 위로
+  $htmlBody.scrollTop(0); 
 
-  // ✅ 스크롤 시 애니메이션 트리거
+  // 스크롤 시 애니메이션
   $(window).on("scroll", function () {
     if (window.scrollY > 200 && !once) {
       once = true;
@@ -296,4 +301,5 @@ $(function () {
     }
   });
 });
+// 상단 내용 추가////////////////////////////////////
 
