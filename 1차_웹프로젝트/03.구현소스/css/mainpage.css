@@ -52,21 +52,36 @@ body {
 .intro-area {
   overflow: hidden;
 }
-.intro-box{
+.intro-box {
   height: 100vh;
 }
-.intro-box video{
+.intro-box video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-.intro-box .scroll{
+.intro-box .scroll {
   position: absolute;
   bottom: 5%;
   left: 50%;
   translate: -50% 0;
 }
+#intro-area {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  opacity: 1;
+  display: block;
+  transition: opacity 1s ease-in-out;
+}
+
+#intro-area.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 /************** 0. 최상단 영역 **************/
 #intro-ticket-area {
@@ -495,7 +510,7 @@ section.b-part::after {
 }
 
 /* 3D 모델링 */
-.threed_model{
+.threed_model {
   position: relative;
 }
 
@@ -506,6 +521,112 @@ section.b-part::after {
   margin: 0 auto;
   /* 가운데 정렬 */
   display: block;
+}
+/* 캐스팅 액자:
+상단에서 낙하 → 제자리 → 좌상단 힌지로 흔들림 + 바닥 그림자 퍼짐 */
+
+/* 첫 번째 li를 '프레임'으로 사용 */
+.cas-box .frame {
+  transform-origin: 0 0;
+  animation: frame-sway 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+/* 바닥 접지 그림자/먼지(핀 없음!) */
+.cas-box .frame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  /* 프레임 아래 살짝 */
+  bottom: -12px;
+  width: 60%;
+  height: 18px;
+  transform: translateX(-50%) scaleX(0.6);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0) 65%
+  );
+  /* 드랍 때만 보임 */
+  opacity: 0; 
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* 낙하(프레임 전체 이동) */
+.cas-box.is-dropping .frame {
+  animation: frame-drop 900ms var(--delay, 0ms)
+    cubic-bezier(0.25, 0.9, 0.2, 1.05) forwards;
+}
+
+/* 낙하와 동시에 그림자 퍼지는 ‘먼지’ 효과 */
+.cas-box.is-dropping .frame::after {
+  animation: puff 700ms ease-out forwards var(--delay, 0ms);
+}
+
+/* 도착 후 달랑달랑 – 프레임 자체가 좌상단을 축으로 회전 */
+.cas-box.hang .frame {
+  transform-origin: 0 0; /* 좌상단 힌지 */
+  animation: frame-sway 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* keyframes */
+@keyframes frame-drop {
+  0% {
+    transform: translateY(-120vh) rotate(-6deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(0) rotate(1.6deg);
+    opacity: 1;
+  }
+  85% {
+    /* 가볍게 튕김 */
+    transform: translateY(-12px) rotate(-0.6deg); 
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    /* 마지막 프레임에서 확실히 보이게 */
+    opacity: 1; 
+  }
+}
+
+@keyframes puff {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.6);
+    filter: blur(0px);
+  }
+  40% {
+    opacity: 0.35;
+    transform: translateX(-50%) scaleX(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(1.4);
+    filter: blur(2px);
+  }
+}
+
+/* 비대칭으로 자연스러운 달랑거림 */
+@keyframes frame-sway {
+  0% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  30% {
+    transform: translateY(-1px) rotate(3.5deg);
+  }
+  55% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  80% {
+    transform: translateY(-0.5px) rotate(2.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
 }
 
 /***************** 2-4. 팬텀캐릭터 영역 *****************/
@@ -528,6 +649,15 @@ section.b-part::after {
   background: url(/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/mask_er1.png)
     no-repeat center / cover;
 }
+.glitch-box2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(/1차_웹프로젝트/01.자료수집/img/팬텀관련/팬텀이미지/문구.png)
+    no-repeat center / cover;
+}
 
 /* Glitch 초기 상태: 숨김 */
 .glitch-box {
@@ -543,7 +673,7 @@ section.b-part::after {
   opacity: 1;
   visibility: visible;
   /* 보일 땐 지연 제거 */
-  transition: opacity 0.45s ease; 
+  transition: opacity 0.45s ease;
 }
 
 .pcat-part img {

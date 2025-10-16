@@ -88,42 +88,53 @@
   });
 })();
 
-// glitch-box : hover 시 나타나고 유지
+// ===== 캐스팅 액자: 떨어지고 달랑달랑 =====
+(() => {
+  const box = document.querySelector(".cas-box");
+  if (!box) return;
 
-
-// === glitch-box: 첫 hover 때 나타나고, 이후 계속 글리치 유지 ===
-$(() => {
-  const $zone = $(".pcat-part");
-  const $glitch = $(".glitch-box");
-  let inited = false;   // mgGlitch 초기화 1회만
-  let shown  = false;   // show 클래스 1회만
-
-  $zone.on("mouseenter", () => {
-    // 1) 처음 hover 되면 보이기 (영구 유지)
-    if (!shown) {
-      $glitch.addClass("show");
-      shown = true;
-    }
-    // 2) 글리치 효과 처음 한 번만 초기화 → 이후 계속 동작
-    if (!inited) {
-      $glitch.mgGlitch({
-        destroy: false,       // true면 멈춤
-        glitch: true,         // 글리치 on
-        scale: true,          // 스케일 튕김 on
-        blend: true,          // 블렌드 on
-        blendModeType: "screen", // 블렌드 모드
-        glitch1TimeMin: 300,  // 글리치1 최소 주기
-        glitch1TimeMax: 600,  // 글리치1 최대 주기
-        glitch2TimeMin: 10,   // 글리치2 최소 주기
-        glitch2TimeMax: 115,  // 글리치2 최대 주기
-      });
-      inited = true;
-    }
+  // 1) 이미지 들어있는 첫번째 li에 .frame 클래스 부여 (HTML 수정 없이)
+  box.querySelectorAll("div > ul > li:first-child").forEach((li) => {
+    li.classList.add("frame");
   });
 
-  // 마우스가 떠나도 유지 → mouseleave 핸들러 없음
-});
+  const frames = Array.from(box.querySelectorAll(".frame"));
+  if (!frames.length) return;
 
+  // 2) 뷰포트에 들어오면 낙하 시작 (한 번만)
+  let started = false;
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (!started && en.isIntersecting) {
+          started = true;
+          // 낙하 시작 클래스
+          box.classList.add("is-dropping");
+
+          // 드랍 지연(스태거) 부여 – 왼쪽부터 0ms, 140ms, 280ms…
+          frames.forEach((el, idx) => {
+            el.style.setProperty("--delay", `${idx * 140}ms`);
+          });
+
+          // 마지막 프레임 드랍이 끝나면 흔들림 시작
+          const last = frames[frames.length - 1];
+          last.addEventListener(
+            "animationend",
+            () => {
+              box.classList.add("hang"); // img에 swing 애니메이션 적용
+            },
+            { once: true }
+          );
+
+          io.disconnect();
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  io.observe(box);
+})();
 
 //수정 전
 // 노이즈효과 : 글리치
@@ -157,28 +168,132 @@ $(() => {
 //   });
 // });
 
+// === glitch-box: 첫 hover 때 나타나고, 이후 계속 글리치 유지 ===
+$(() => {
+  const $zone = $(".pcat-part");
+  const $glitch = $(".glitch-box");
+  let inited = false; // mgGlitch 초기화 1회만
+  let shown = false; // show 클래스 1회만
+
+  $zone.on("mouseenter", () => {
+    // 1) 처음 hover 되면 보이기 (영구 유지)
+    if (!shown) {
+      $glitch.addClass("show");
+      shown = true;
+    }
+    // 2) 글리치 효과 처음 한 번만 초기화 → 이후 계속 동작
+    if (!inited) {
+      $glitch.mgGlitch({
+        destroy: false, // true면 멈춤
+        glitch: true, // 글리치 on
+        scale: true, // 스케일 튕김 on
+        blend: true, // 블렌드 on
+        blendModeType: "screen", // 블렌드 모드
+        glitch1TimeMin: 300, // 글리치1 최소 주기
+        glitch1TimeMax: 600, // 글리치1 최대 주기
+        glitch2TimeMin: 10, // 글리치2 최소 주기
+        glitch2TimeMax: 115, // 글리치2 최대 주기
+      });
+      inited = true;
+    }
+  });
+
+  // 마우스가 떠나도 유지 → mouseleave 핸들러 없음
+});
+
+// 노이즈효과 : 글리치
+$(() => {
+  $(".glitch-box2").mgGlitch({
+    destroy: false, // set 'true' to stop the plugin
+    glitch: true, // set 'false' to stop glitching
+    scale: true, // set 'false' to stop scaling
+    blend: true, // set 'false' to stop glitch blending
+    // CSS blend-mode property
+    // normal
+    // multiply
+    // screen
+    // overlay
+    // darken
+    // lighten
+    // color-dodge
+    // color-burn
+    // difference
+    // exclusion
+    // hue
+    // saturation
+    // color
+    // luminosity
+
+    blendModeType: "overlay", // select blend mode type
+    glitch1TimeMin: 300, // set min time for glitch 1 elem
+    glitch1TimeMax: 600, // set max time for glitch 1 elem
+    glitch2TimeMin: 10, // set min time for glitch 2 elem
+    glitch2TimeMax: 115, // set max time for glitch 2 elem
+  });
+});
 
 // intro 영역 스크롤 내리면 사라짐
 // 한번만 실행변수
-let once = 0;
+// let once = 0;
 
-$(window).on("scroll", () => {
-  console.log(window.scrollY);
-  if (window.scrollY > 600 ){
-    if(once) return;
-    once = 1;
-    // 인트로 영역 사라짐
-    $("#intro-area").animate(
-      { height: "0" },
-      1200,
-      "easeInOutCubic",
-      function () {
-        // 애니메이션 완료 후 삭제
-        $(this).remove();
-      }
-    );
-    $("html, body").animate({ scrollTop: 0 }, 1200, () => {
-      $(window).off("scroll");
-    });
-  } /// if //////
-}); //// over /////
+// $(window).on("scroll", () => {
+//   console.log(window.scrollY);
+//   if (window.scrollY > 600) {
+//     if (once) return;
+//     once = 1;
+
+    
+//     // 인트로 영역 사라짐
+//     $("#intro-area").animate(
+//       { height: "0" },
+//       1200,
+//       "easeInOutCubic",
+//       function () {
+//         // 애니메이션 완료 후 삭제
+//         $(this).remove();
+//       }
+//     );
+
+
+//     $("html, body").animate({ scrollTop: 0 }, 1200, () => {
+//       $(window).off("scroll");
+//     });
+//   } /// if //////
+// }); //// over /////
+
+$(function () {
+  const $intro = $("#intro-area");
+  const $htmlBody = $("html, body");
+  const $ticket = $("#intro-ticket-area");
+  let once = false;
+
+  // ✅ 새로고침 시 항상 인트로 초기화
+  $intro.removeClass("fade-out").css({
+    display: "block",
+    opacity: 1,
+    height: "100vh",
+  });
+  $htmlBody.scrollTop(0); // 항상 맨 위로
+
+  // ✅ 스크롤 시 애니메이션 트리거
+  $(window).on("scroll", function () {
+    if (window.scrollY > 200 && !once) {
+      once = true;
+
+      // 1) 인트로 영상 서서히 사라짐
+      $intro.addClass("fade-out");
+
+      // 2) 사라지는 동안 자연스럽게 티켓 영역으로 스크롤 이동
+      $("html, body").animate(
+        { scrollTop: $ticket.offset().top },
+        2000,
+        "swing",
+        function () {
+          // 스크롤 이벤트 한 번만 작동
+          $(window).off("scroll");
+        }
+      );
+    }
+  });
+});
+
