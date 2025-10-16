@@ -271,39 +271,3 @@ setTimeout(() => {
 
   }, 500);
 }, 400);
-
-// $(function () {
-//   const $intro = $("#intro-area");
-//   const $htmlBody = $("html, body");
-//   const $ticket = $("#intro-ticket-area");
-//   let once = false;
-
-//   // ✅ 새로고침 시 항상 인트로 초기화
-//   $intro.removeClass("fade-out").css({
-//     display: "block",
-//     opacity: 1,
-//     height: "100vh",
-//   });
-//   $htmlBody.scrollTop(0); // 항상 맨 위로
-
-//   // ✅ 스크롤 시 애니메이션 트리거
-//   $(window).on("scroll", function () {
-//     if (window.scrollY > 200 && !once) {
-//       once = true;
-
-//       // 1) 인트로 영상 서서히 사라짐
-//       $intro.addClass("fade-out");
-
-//       // 2) 사라지는 동안 자연스럽게 티켓 영역으로 스크롤 이동
-//       $("html, body").animate(
-//         { scrollTop: $ticket.offset().top },
-//         2000,
-//         "swing",
-//         function () {
-//           // 스크롤 이벤트 한 번만 작동
-//           $(window).off("scroll");
-//         }
-//       );
-//     }
-//   });
-// });

@@ -7,10 +7,6 @@
 /* 12그리드 CSS */
 @import url(./grid_12_flex.css);
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   overflow-x: hidden;
   background-color: #000;
@@ -71,6 +67,8 @@ body {
   left: 50%;
   translate: -50% 0;
 }
+
+/* 하단 내용 추가 */
 #intro-area {
   position: relative;
   height: 100vh;
@@ -85,12 +83,18 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+/* 상단 내용 */
 
 /************** 0. 최상단 영역 **************/
 #intro-ticket-area {
   position: relative;
   height: 100vh;
+<<<<<<< Updated upstream
   background: url(../img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
+=======
+  background: url(../img/팬텀관련/images/);
+  /* background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png) */
+>>>>>>> Stashed changes
     no-repeat center / cover;
 }
 
@@ -557,7 +561,7 @@ section.b-part::after {
     rgba(0, 0, 0, 0) 65%
   );
   /* 드랍 때만 보임 */
-  opacity: 0;
+  opacity: 0; 
   pointer-events: none;
   filter: blur(1px);
 }
@@ -592,13 +596,13 @@ section.b-part::after {
   }
   85% {
     /* 가볍게 튕김 */
-    transform: translateY(-12px) rotate(-0.6deg);
+    transform: translateY(-12px) rotate(-0.6deg); 
     opacity: 1;
   }
   100% {
     transform: translateY(0) rotate(0deg);
     /* 마지막 프레임에서 확실히 보이게 */
-    opacity: 1;
+    opacity: 1; 
   }
 }
 
@@ -731,7 +735,7 @@ section.b-part::after {
 /***************** 3. 하단영역 *****************/
 #bottom-area {
   position: relative;
-  max-width: 1940px;
+  width: 1940px;
   margin: 0 auto;
 }
 
@@ -743,9 +747,9 @@ section.b-part::after {
 }
 .footer-wrap {
   /* 요청한 고정 폭 */
-  width: 100%;
+  width: 1940px;
   /* 더 넓어지지 않게 */
-  /* max-width: 1940px; */
+  max-width: 1940px;
   /* 가운데 정렬 */
   margin: 0 auto;
   /* 위/옆/아래 여백 */
@@ -757,7 +761,6 @@ section.b-part::after {
 /* 상단: 좌측 로고 + 우측 주소 텍스트 */
 .footer-top {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   gap: 36px;
 }
