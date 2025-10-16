@@ -89,12 +89,7 @@ body {
 #intro-ticket-area {
   position: relative;
   height: 100vh;
-<<<<<<< Updated upstream
   background: url(../img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
-=======
-  background: url(../img/팬텀관련/images/);
-  /* background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png) */
->>>>>>> Stashed changes
     no-repeat center / cover;
 }
 
