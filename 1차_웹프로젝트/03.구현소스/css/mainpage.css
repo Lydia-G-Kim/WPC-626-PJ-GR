@@ -90,7 +90,7 @@ body {
 #intro-ticket-area {
   position: relative;
   height: 100vh;
-  background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
+  background: url(../img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
     no-repeat center / cover;
 }
 
@@ -333,7 +333,7 @@ body {
 /* 배경 이미지 박스 */
 .b-part {
   position: absolute;
-  background: url(../../01.자료수집/img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)
+  background: url(../img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)
     no-repeat center top/130%;
   object-fit: fill;
   width: 1940px;
@@ -737,7 +737,7 @@ section.b-part::after {
 
 /* 바탕 빨간 천 배경 */
 .footer {
-  background: url("../../01.자료수집/img/팬텀관련/images/images/하단영역_04.png")
+  background: url("../img/팬텀관련/images/images/하단영역_04.png")
     center/cover no-repeat;
   color: #fff;
 }
