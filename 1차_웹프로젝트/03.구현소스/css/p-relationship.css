@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* EMK뮤지컬컴퍼니 PJ 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./common.css);
+@import url(./reset.css);
+@import url(./core.css);
+/* 12그리드 CSS */
+@import url(./grid_12_flex.css);
+
+/* 공사중 표시 */
+/* body * {
+  outline: 2px dashed #ccc;
+} */
+
+/***************** 메인 CSS *****************/
+
+/* 배경이미지 */
+#main-area {
+  /* background-image: url(../img/로고/fabric.jpg) no-repeat center top/cover; */
+  background: url(../img/팬텀관련/팬텀이미지/screening_bg.jpg);
+  background-repeat: inherit;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* 팬텀 이미지 */
+.text-box {
+  position: absolute;
+  /* 이미지 중앙에 위치 */
+  top: 250%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.text-box img {
+  width: 30vw;
+}
+/* 히스토리 버튼 */
+.history-btn-box {
+  position: relative;
+  top: 30vh;
+  gap: 30%;
+  z-index: 99999;
+}
+.history-btn-box ul {
+  display: flex;
+  justify-content: center;
+  gap: 4vw;
+}
+.history-btn-box a {
+  font-family: "Alfa Slab One", "Black Han Sans", serif;
+  font-size: 2vh;
+  color: #ff0000;
+}
+
+.poster-box {
+  text-align: center;
+}
+.poster-box img {
+  width: 55vw;
+  margin-top: 34vh;
+  margin-bottom: 5vh;
+}
