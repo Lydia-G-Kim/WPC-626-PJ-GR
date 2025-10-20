@@ -1,0 +1,29 @@
+.btn-reserve {
+  /* 아이콘 + 텍스트 정렬 */
+  display: flex;
+  /* 세로 가운데 정렬 */
+  align-items: center;
+  gap: 8px;
+  /* 아이콘과 텍스트 간격 */
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* 아이콘 크기 */
+#main-area.reserve-btn-wrapper img {
+  /* 원하는 크기로 조정 */
+  width: 20px;
+  height: auto;
+}
+
+/* 빨간색 예매하기 버튼 */
+.reserve-btn-wrapper {
+  background: #e60000;
+}
+.reserve-btn-wrapper:hover {
+  background: #b30000;
+}
