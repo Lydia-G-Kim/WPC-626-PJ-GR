@@ -98,3 +98,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+$('.btn-top').click(function () {
+  $('html, body').animate({
+    scrollTop : 0
+  }, 2000, 'easeInQuint');
+  return false;
+});
