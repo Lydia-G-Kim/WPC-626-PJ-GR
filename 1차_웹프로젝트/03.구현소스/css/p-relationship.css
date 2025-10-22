@@ -13,6 +13,7 @@
   outline: 2px dashed #ccc;
 } */
 
+
 /***************** 메인 CSS *****************/
 
 /* 인트로 영상 배너 */
@@ -76,7 +77,6 @@
 }
 
 /* 버튼 공통 스타일 */
-/* 버튼 공통 스타일 */
 .reserve-btn-wrapper {
   position: relative;
   top: 1.8%;
@@ -134,6 +134,11 @@
   font-size: 2vh;
   color: #ff0000;
 }
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.history-btn-box ul li:hover a {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 20px #ff0000;
+}
 
 .poster-box {
   margin-top: -30vh;
@@ -142,7 +147,10 @@
 .poster-box img {
   width: 40vw;
   margin-top: 34vh;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
+  object-fit: contain;
+  /* 이미지 전체 보이기 */
+  max-height: 100%;
 }
 /* 포스터 기본 상태 */
 .poster-box ul li {
@@ -161,4 +169,22 @@
 .history-btn.active {
   color: #ffffff;
   text-shadow: 0 0 8px #ff0000;
+}
+
+/* top 버튼 */
+.btn-top {
+  position: absolute;
+  right: 11%;
+  bottom: 0.2%;
+  background-color: red;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "Alfa Slab One";
+  border-radius: 30px;
+  padding: 10px;
+}
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.btn-top-box ul li:hover a {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 8px #ffffff;
 }

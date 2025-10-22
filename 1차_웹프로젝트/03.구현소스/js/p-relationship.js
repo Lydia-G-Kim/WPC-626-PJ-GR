@@ -7,7 +7,7 @@
   const cursor = document.querySelector(".custom-cursor");
 
   // 이미지 팁(화살표 끝)과 실제 포인터를 맞추는 보정값
-  // 필요에 따라 -4, -6 등으로 미세 조정해봐
+  // 필요에 따라 -4, -6 등으로 미세 조정
   const HOT_X = 0;
   const HOT_Y = 0;
 
@@ -37,7 +37,11 @@
   }
   loop();
 
-  document.querySelectorAll(".btn").forEach((el) => {
+  const hoverTargets = document.querySelectorAll(
+    ".btn, .btn-reserve, .history-btn, .btn-top"
+  );
+
+  hoverTargets.forEach((el) => {
     el.addEventListener("mouseenter", () => {
       cursor.style.display = "none";
     });
@@ -61,11 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!buttons.length || !posters.length) return;
 
-  // ✅ 모든 포스터 숨기기 (초기화)
+  // 모든 포스터 숨기기 (초기화)
   posters.forEach((li) => li.classList.remove("active"));
   buttons.forEach((b) => b.classList.remove("active"));
 
-  // ✅ 1. 페이지 로드 시, 자동으로 2025 포스터 보이기
+  // 1. 페이지 로드 시, 자동으로 2025 포스터 보이기
   const defaultPoster = document.querySelector(
     '.poster-box ul li[data-year="2025"]'
   );
@@ -73,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (defaultPoster) defaultPoster.classList.add("active");
   if (defaultBtn) defaultBtn.classList.add("active");
 
-  // ✅ 2. 버튼 클릭 이벤트
+  // 2. 버튼 클릭 이벤트
   buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -81,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // MAIN 버튼 클릭 시 메인 페이지로 이동
       if (year === "main") {
-        window.location.href = "./mainpage.html"; // 원하는 경로로 수정
+        window.location.href = "./mainpage.html";
         return;
       }
 
@@ -99,11 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-
-$('.btn-top').click(function () {
-  $('html, body').animate({
-    scrollTop : 0
-  }, 2000, 'easeInQuint');
+$(".btn-top").click(function () {
+  $("html, body").animate(
+    {
+      scrollTop: 0,
+    },
+    2000,
+    "easeInQuint"
+  );
   return false;
 });

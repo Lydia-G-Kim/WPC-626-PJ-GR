@@ -18,8 +18,7 @@
 /***************** 메인 CSS *****************/
 
 /************** 0. 동영상 영역 **************/
-/* 상단영역 인트로 박스 : 평소에는 보이지 않고, 마우스 오버 시 보임 */
-.intro-area {
+#intro-area {
   overflow: hidden;
 }
 .intro-box {
@@ -38,20 +37,6 @@
   translate: -50% 0;
 }
 
-#intro-area {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #000;
-  opacity: 1;
-  display: block;
-  transition: opacity 1s ease-in-out;
-}
-
-#intro-area.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
 
 
 /************** 1. 티켓 예매 영역 **************/
@@ -547,3 +532,20 @@ section.b-part::after {
   object-position: top;
 }
 
+/* top 버튼 */
+.btn-top {
+  position: absolute;
+  right: 9%;
+  bottom: 0.2%;
+  background-color: red;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "Alfa Slab One";
+  border-radius: 30px;
+  padding: 10px;
+}
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.btn-top-box ul li:hover a {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 8px #ffffff;
+}
