@@ -69,6 +69,9 @@ window.addEventListener("load", () => {
   // 이전 스크롤 위치 값 저장변수
   let prevScroll = 0;
 
+  // 화면높이값 계산
+  let winH = window.innerHeight;
+
   // 스크롤 이벤트 설정하기
   window.addEventListener("scroll", () => {
     // 스크롤 위치 값 구하기
@@ -77,7 +80,7 @@ window.addEventListener("load", () => {
 
     // (1) 아래로 스크롤
     // 이전 스크롤 위치 값 < 현재 스크롤 위치 값
-    if (prevScroll < curScroll) {
+    if (curScroll > winH &&prevScroll < curScroll) {
       console.log("스크롤 내려간다");
       // 스크롤 내려가면 메뉴 숨기기
       header.classList.add("hide");
@@ -309,10 +312,17 @@ setTimeout(() => {
 $(".btn-top").click(function () {
   $("html, body").animate(
     {
-      scrollTop: 1314,
+      scrollTop: window.innerHeight+'px',
     },
     2000,
     "easeInQuint"
   );
   return false;
 });
+
+
+
+/////// 팬텀 로고에 마우스 엔터시 클래스 on 한번 넣기
+$('.phantom-logo').on('mouseenter', function () {
+  $(this).addClass('on');
+}); //////////// mouseenter ///////////////

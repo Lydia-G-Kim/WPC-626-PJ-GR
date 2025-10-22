@@ -8,12 +8,10 @@
 /* 12그리드 CSS */
 @import url(./grid_12_flex.css);
 
-
 /* 공사중 표시 */
 /* body * {
   outline: 2px dashed #ccc;
 } */
-
 
 /***************** 메인 CSS *****************/
 
@@ -37,14 +35,12 @@
   translate: -50% 0;
 }
 
-
-
 /************** 1. 티켓 예매 영역 **************/
 #intro-ticket-area {
   position: relative;
   height: 100vh;
-  background: url(../img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png)
-    no-repeat center / cover;
+  background: url(../img/팬텀관련/팬텀이미지/티켓배경_흐리게_VER.png) no-repeat
+    center / cover;
 }
 
 .ticket {
@@ -124,8 +120,6 @@
   background: #333;
 }
 
-
-
 /***************** 2. 메인영역 *****************/
 #main-area {
   position: relative;
@@ -137,7 +131,8 @@
 /* 배경 이미지 박스 */
 .b-part {
   position: absolute;
-  background: url(../img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)no-repeat center top/130%;
+  background: url(../img/팬텀관련/팬텀이미지/ChatGPT\ Image\ 2025년\ 8월\ 4일\ 오전\ 11_09_33.png)
+    no-repeat center top/130%;
   object-fit: fill;
   width: 1940px;
   max-width: 100%;
@@ -148,6 +143,7 @@
   translate: -50% 0;
   /* 이미지 필터 사용해서 어둡게 만들기 */
   filter: brightness(0.5);
+  margin-top: -78px;
 }
 
 section.b-part::after {
@@ -329,10 +325,10 @@ section.b-part::after {
   display: block;
 }
 /* 3D 요소를 강제로 크기 가로폭에 반응하며 비율유지함! */
-.modeling>* {
-    width: 30vw !important;
-    aspect-ratio: 0.7;
-    height: auto !important;
+.modeling > * {
+  width: 30vw !important;
+  aspect-ratio: 0.7;
+  height: auto !important;
 }
 
 /* 캐스팅 액자:
@@ -360,7 +356,7 @@ section.b-part::after {
     rgba(0, 0, 0, 0) 65%
   );
   /* 드랍 때만 보임 */
-  opacity: 0; 
+  opacity: 0;
   pointer-events: none;
   filter: blur(1px);
 }
@@ -395,13 +391,13 @@ section.b-part::after {
   }
   85% {
     /* 가볍게 튕김 */
-    transform: translateY(-12px) rotate(-0.6deg); 
+    transform: translateY(-12px) rotate(-0.6deg);
     opacity: 1;
   }
   100% {
     transform: translateY(0) rotate(0deg);
     /* 마지막 프레임에서 확실히 보이게 */
-    opacity: 1; 
+    opacity: 1;
   }
 }
 
@@ -468,8 +464,7 @@ section.b-part::after {
   height: 100%;
   top: 0;
   left: 0;
-  background: url(../img/팬텀관련/팬텀이미지/문구.png)
-    no-repeat center / cover;
+  background: url(../img/팬텀관련/팬텀이미지/문구.png) no-repeat center / cover;
 }
 
 /* Glitch 초기 상태: 숨김 */

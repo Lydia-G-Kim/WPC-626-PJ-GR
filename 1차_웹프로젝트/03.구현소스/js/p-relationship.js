@@ -61,7 +61,7 @@
 // ===== 히스토리 버튼 클릭 시 포스터 교체 =====
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".history-btn");
-  const posters = document.querySelectorAll(".poster-box ul li");
+  const posters = document.querySelectorAll(".poster-box img");
 
   if (!buttons.length || !posters.length) return;
 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 클릭된 연도의 포스터만 표시
       const targetPoster = document.querySelector(
-        `.poster-box ul li[data-year="${year}"]`
+        `.poster-box img[data-year="${year}"]`
       );
       if (targetPoster) targetPoster.classList.add("active");
       btn.classList.add("active");
