@@ -1,4 +1,20 @@
-// 메인 JS 영역
+// 인트로 페이지 JS 영역
+
+(()=>{
+  //// 로고 클릭시 body에 클래스 on추가하여 애니 동작하기 ///
+  $('.logo').on('click', function () {
+    $('body').addClass('on');
+    setTimeout(() => {
+      $('.intro-box video').trigger('play');  
+    },2000);
+
+    // 일정시간뒤 페이지 이동하기
+    setTimeout(() => {
+      location.href = './mainpage.html';
+    }, 10000);
+  });
+
+})();
 
 //////////// 공통영역 ////////////
 

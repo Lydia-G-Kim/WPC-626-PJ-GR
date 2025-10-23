@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="./css/common.css" />
     <!-- intro CSS -->
     <link rel="stylesheet" href="./css/intropage.css" />
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 제이쿼리 UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <!-- JS -->
-    <script defer src="./js/mainpage.js"></script>
+    <script defer src="./js/intropage.js"></script>
   </head>
   <body>
     <!-- 마우스 커서 변경 -->
@@ -22,12 +26,14 @@
     <div id="intro-area">
       <section class="intro-box">
         <video
-          src="./img/intro1.mp4"
-          autoplay
+          src="./img/intro1.mp4"          
           loop
           muted
           playsinline="true"
         ></video>
+        <div class="cover-box">
+          <div class="circle"></div>
+        </div>
       </section>
     </div>
 

@@ -126,6 +126,10 @@ body {
   z-index: 9999;
   overflow: hidden;
   height: 200px;
+  transition: all 0.5s ease-in-out;
+}
+#top-area.hide{
+  translate: 0 -100%;
 }
 
 .top-area {

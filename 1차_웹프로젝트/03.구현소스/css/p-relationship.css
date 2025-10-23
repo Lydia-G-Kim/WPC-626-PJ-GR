@@ -123,6 +123,10 @@
   padding: 24px 0;
   background-color: #0000007a;
   z-index: 99999;
+  transition: all 0.5s ease-in-out;
+}
+.history-btn-box.move{
+  translate: 0 100%;
 }
 .history-btn-box ul {
   display: flex;
@@ -177,18 +181,20 @@
 
 /* top 버튼 */
 .btn-top {
-  position: absolute;
+  position: fixed;
   right: 11%;
-  bottom: 0.2%;
+  bottom: 10%;
   background-color: red;
+  border: none;
   color: white;
   font-size: 1.8rem;
   font-family: "Alfa Slab One";
   border-radius: 30px;
   padding: 10px;
+  cursor: pointer;
 }
 /* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
-.btn-top-box ul li:hover a {
+.btn-top:hover {
   color: rgb(0, 0, 0);
   text-shadow: 0 0 8px #ffffff;
 }

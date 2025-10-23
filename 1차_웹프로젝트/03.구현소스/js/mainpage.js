@@ -2,6 +2,11 @@
 
 //////////// 공통영역 ////////////
 
+// 처음에 암전상태에서 보이기
+(() => {
+  // $('body').addClass('on');
+})();
+
 // 마우스 커서 (GPU transform + rAF)
 (() => {
   const cursor = document.querySelector(".custom-cursor");

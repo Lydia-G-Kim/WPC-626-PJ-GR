@@ -93,32 +93,103 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // 모든 포스터 숨기기
-      posters.forEach((li) => li.classList.remove("active"));
       buttons.forEach((b) => b.classList.remove("active"));
 
-      // 클릭된 연도의 포스터만 표시
-      const targetPoster = document.querySelector(
-        `.poster-box ul li[data-year="${year}"]`
-      );
-      if (targetPoster) targetPoster.classList.add("active");
-      btn.classList.add("active");
+      // 포스터가 서서히 사라짐
+      $('.poster-box').fadeTo(500,0,()=>{
+        // 모든 포스터 숨기기
+        posters.forEach((li) => li.classList.remove("active"));
+        
+              // 클릭된 연도의 포스터만 표시
+              const targetPoster = document.querySelector(
+                `.poster-box ul li[data-year="${year}"]`
+              );
+              if (targetPoster) targetPoster.classList.add("active");
+              btn.classList.add("active");
+        
+              // 클릭시 스티키메뉴 상단위치로 스크롤이동하기
+              $('html, body').animate({
+                scrollTop: historyBtnBoxTop+'px'
+              }, 500, 'easeInQuint');
 
-      // 클릭시 스티키메뉴 상단위치로 스크롤이동하기
-      $('html, body').animate({
-        scrollTop: historyBtnBoxTop+'px'
-      }, 1000, 'easeInQuint');
+
+      }).delay(500).fadeTo(500,1);
     }); ///////// click ////////////////
-  });
-});
+  }); /////////// forEach //////////////
 
-$(".btn-top").click(function () {
-  $("html, body").animate(
-    {
-      scrollTop: 0,
-    },
-    2000,
-    "easeInQuint"
-  );
-  return false;
-});
+  // 상단이동버튼 클릭함수 //////////
+  $(".btn-top").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: historyBtnBoxTop+'px',
+      },
+      2000,
+      "easeInQuint"
+    );
+
+    return false;
+  });
+}); //////////// load구역 //////////////
+
+
+//////////// 1. 상단영역 ////////////
+/******************************* 스티키 확인필요 *******************************/
+window.addEventListener("load", () => {
+  // 변경대상 : 상단영역 .header
+  const header = document.querySelector("#top-area");
+  const stkMenu = document.querySelector(".history-btn-box");
+  const $btnTop = $(".btn-top");
+
+  // 스크롤 방향 알아내는 원리:
+  // (1) 아래로 스크롤
+  // 이전 스크롤 위치 값 < 현재 스크롤 위치 값
+  // (2) 위로 스크롤
+  // 이전 스크롤 위치 값 > 현재 스크롤 위치 값
+
+  // 이전 스크롤 위치 값 저장변수
+  let prevScroll = 0;
+
+  // 상단이동버튼이 나타나고 사라지는 기준위치 설정하기
+  // 스티키박스위치 + 보이는 화면높이만큼
+  const $historyBtnBox = $(".history-btn-box ul");
+  // 기준위치값
+  let topBtnShowPosition = $historyBtnBox.offset().top + window.innerHeight;
+
+
+  // 스크롤 이벤트 설정하기
+  window.addEventListener("scroll", () => {
+    // 스크롤 위치 값 구하기
+    let curScroll = window.scrollY;
+    // console.log('스크롤이벤트', curScroll);
+
+    // (1) 아래로 스크롤
+    // 이전 스크롤 위치 값 < 현재 스크롤 위치 값
+    if (prevScroll < curScroll) {
+      console.log("스크롤 내려간다");
+      // 스크롤 내려가면 메뉴 숨기기
+      header.classList.add("hide");
+      stkMenu.classList.remove("move");
+    } //// if ////
+
+    // (2) 위로 스크롤
+    // 이전 스크롤 위치 값 > 현재 스크롤 위치 값
+    else {
+      console.log("스크롤 올라간다");
+      // 스크롤 올라가면 메뉴 보이기
+      header.classList.remove("hide");
+      stkMenu.classList.add("move");
+    } //// else ////
+
+    // 중요!!! 마지막에 이전 스크롤 위치를 저장!
+    prevScroll = curScroll;
+
+
+    // 스크롤위치값이 기준위치값 보다 크면 나타나고 작은면 사라짐
+    if(curScroll > topBtnShowPosition){
+      $btnTop.fadeIn(300);
+    } else {
+      $btnTop.fadeOut(300);
+    }
+
+  }); //// scroll ////
+}); /// 로딩구역 ///////////////////////
