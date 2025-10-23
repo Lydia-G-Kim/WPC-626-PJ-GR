@@ -13,6 +13,16 @@
   outline: 2px dashed #ccc;
 } */
 
+body{
+  filter: brightness(0);
+  animation: start-ani 1s ease-in-out 2s forwards;
+}
+@keyframes start-ani {
+  to{
+    filter: brightness(1);
+  }
+}
+
 /***************** 메인 CSS *****************/
 
 /************** 0. 동영상 영역 **************/
