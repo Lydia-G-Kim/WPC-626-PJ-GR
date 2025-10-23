@@ -144,7 +144,7 @@
   margin-top: -30vh;
   text-align: center;
 }
-.poster-box img {
+.poster-box ul li {
   width: 40vw;
   margin-top: 34vh;
   /* margin-bottom: 5vh; */
@@ -154,14 +154,14 @@
   text-align: center;
 }
 /* 포스터 기본 상태 */
-.poster-box img {
+.poster-box ul li {
   display: none;
   /* opacity: 0;
   transition: opacity 0.6s ease-in-out; */
 }
 
 /* 활성화된 포스터 (JS에서 .active 추가됨) */
-.poster-box img.active {
+.poster-box ul li.active {
   display: inline;
   /* opacity: 1; */
 }
