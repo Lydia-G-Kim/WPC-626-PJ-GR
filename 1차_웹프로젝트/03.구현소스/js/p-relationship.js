@@ -62,6 +62,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".history-btn");
   const posters = document.querySelectorAll(".poster-box ul li");
+  const $historyBtnBox = $(".history-btn-box ul");
+  // 스티키박스의 위치값구하기
+  let historyBtnBoxTop = $historyBtnBox.offset().top;
+  console.log('스티키박스의 위치값',historyBtnBoxTop);
 
   if (!buttons.length || !posters.length) return;
 
@@ -99,7 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       if (targetPoster) targetPoster.classList.add("active");
       btn.classList.add("active");
-    });
+
+      // 클릭시 스티키메뉴 상단위치로 스크롤이동하기
+      $('html, body').animate({
+        scrollTop: historyBtnBoxTop+'px'
+      }, 1000, 'easeInQuint');
+    }); ///////// click ////////////////
   });
 });
 
