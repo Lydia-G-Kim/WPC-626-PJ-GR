@@ -9,6 +9,10 @@ body {
   background-color: #000;
   cursor: none;
 }
+body, html {
+  transform: none !important;
+  zoom: 1 !important;
+}
 
 /* 커서 전체 */
 .custom-cursor {
@@ -16,22 +20,31 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 2147483647;
+  z-index: 9999999;
   display: flex;
   align-items: center;
   gap: 6px;
   will-change: transform;
+  /* 초기 위치를 화면 밖으로 (깜빡임 방지) */
+  /* transform: translate3d(-100px, -100px, 0); */
   transform: translate3d(0, 0, 0);
+  will-change: transform;
+  isolation: isolate;
+  /* 커서 기준점을 왼쪽 상단으로 */
+  transform-origin: 0 0;
 }
 
 .custom-cursor img {
   user-select: none;
   pointer-events: none;
+  display: block; /* 추가: 이미지 하단 공백 제거 */
 }
+
 .cursor-img {
   width: 24px;
   height: auto;
 }
+
 /* 꼬리 (EMK 이미지) */
 .cursor-tail {
   width: 40px;
@@ -181,7 +194,6 @@ body {
   translate: 0 -100%;
 }
 
-/******************************* 스티키 확인필요 *******************************/
 
 #menu-box {
   padding-right: 10px;
@@ -195,6 +207,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-evenly;
+  background-color: #0000007a;
   height: 100%;
 }
 

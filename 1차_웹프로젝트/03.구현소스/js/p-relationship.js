@@ -7,7 +7,7 @@
   const cursor = document.querySelector(".custom-cursor");
 
   // 이미지 팁(화살표 끝)과 실제 포인터를 맞추는 보정값
-  // 필요에 따라 -4, -6 등으로 미세 조정
+  // 필요에 따라 -4, -6 등으로 미세 조정해봐
   const HOT_X = 0;
   const HOT_Y = 0;
 
@@ -38,7 +38,7 @@
   loop();
 
   const hoverTargets = document.querySelectorAll(
-    ".btn, .btn-reserve, .history-btn, .btn-top"
+    ".btn, .btn-reserve, .history-btn, .btn-top, .logo"
   );
 
   hoverTargets.forEach((el) => {
@@ -133,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //////////// 1. 상단영역 ////////////
-/******************************* 스티키 확인필요 *******************************/
 window.addEventListener("load", () => {
   // 변경대상 : 상단영역 .header
   const header = document.querySelector("#top-area");
