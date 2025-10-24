@@ -11,7 +11,7 @@ body {
   overflow: hidden;
 }
 body.on {
-  animation: final-ani 2s ease-in-out 5s forwards;
+  animation: final-ani 2s ease-in-out 10s forwards;
 }
 
 /* 동영상 */
@@ -57,7 +57,7 @@ body.on {
 
 body.on .circle {
   width: 0%;
-  animation: spotlight-ani 5s ease-in-out 1s 1;
+  animation: spotlight-ani 5s ease-in-out 0.5s 7;
 }
 
 /* 스포트라이트  애니 */
@@ -181,7 +181,7 @@ body.on .right-c {
 .curtain-box p{
   position: absolute;
   top: 46%;
-  left: 50.5%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Alfa Slab One";
   font-size: 2rem;
@@ -191,6 +191,10 @@ body.on .right-c {
   transition: 2s 0.4s;
   z-index: 99999999;
 }
+body.on .click {
+  opacity: 0;
+}
+
 
 /* 중앙 로고 이미지 위치 */
 .logo {

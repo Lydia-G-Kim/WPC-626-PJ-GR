@@ -1,0 +1,512 @@
+@charset "utf-8";
+/* EMK뮤지컬컴퍼니 PJ 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./frida_common.css);
+@import url(./reset.css);
+@import url(./core.css);
+/* 12그리드 CSS */
+@import url(./grid_12_flex.css);
+
+/* 공사중 표시 */
+/* body * {
+  outline: 2px dashed #ccc;
+} */
+
+body{
+  filter: brightness(0);
+  animation: start-ani 1s ease-in-out 2s forwards;
+}
+@keyframes start-ani {
+  to{
+    filter: brightness(1);
+  }
+}
+
+/***************** 메인 CSS *****************/
+
+/************** 0. 동영상 영역 **************/
+#intro-area {
+  overflow: hidden;
+}
+.intro-box {
+  position: relative;
+  height: 100vh;
+}
+.intro-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.intro-box .down{
+  position: absolute;
+  bottom: 30px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  opacity: 1;
+  color: #06ab00;
+  font-family: "Alfa Slab One";
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  z-index: 100;
+}
+
+/* 스크롤다운 확인필요 */
+
+
+/************** 1. 티켓 예매 영역 **************/
+#intro-ticket-area {
+  position: relative;
+  height: 100vh;
+  background: url(../img/frida_pic/images/배너\ 배경\ 이미지\ 흐리게.png) no-repeat
+    center / cover;
+}
+
+.ticket {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  max-width: 1600px;
+}
+.ticket-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.arw_left {
+  /* 티켓 이미지 가로기준 중간, 세로기준 왼쪽에 화살표 위치 */
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 10%;
+}
+
+.arw_right {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: 10%;
+  /* 오른쪽에 위치 */
+}
+
+/* 버튼 공통 스타일 */
+.ticket-btns {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px; /* 버튼 간격 */
+}
+
+.ticket-btns .btn {
+  /* 아이콘 + 텍스트 정렬 */
+  display: flex;
+  /* 세로 가운데 정렬 */
+  align-items: center;
+  gap: 8px;
+  /* 아이콘과 텍스트 간격 */
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* 아이콘 크기 */
+.ticket-btns .btn img {
+  /* 원하는 크기로 조정 */
+  width: 20px;
+  height: auto;
+}
+
+/* 초록색 예매하기 버튼 */
+.ticket-btns .btn.reserve {
+  background: #06ab00;
+}
+.ticket-btns .btn.reserve:hover {
+  background: #046900;
+}
+
+/* 검정색 상세보기 버튼 */
+.ticket-btns .btn.detail {
+  background: #111;
+}
+.ticket-btns .btn.detail:hover {
+  background: #333;
+}
+
+/***************** 2. 메인영역 *****************/
+#main-area {
+  position: relative;
+  aspect-ratio: 1920 / 3800;
+}
+
+/***************** 2-1. 프리다 3D 영역 *****************/
+
+/* 배경 이미지 박스 */
+.b-part img {
+  position: relative;
+  /* background: url(../img/frida_pic/프리다/배경화면.png) */
+    /* no-repeat center top/130%; */
+  object-fit: fill;
+  width: 1940px;
+  max-width: 100%;
+  height: 100%;
+  /* 이미지 중간에 위치 */
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  margin-top: -78px;
+  z-index: -1;
+}
+
+/* section.b-part::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000000a6 10%,
+    transparent 20%,
+    #ffffff8a 30%,
+    transparent
+  );
+} */
+
+/* 프리다 로고: 시작은 최상단, 가로 중앙 */
+#main-area .frida-logo {
+  position: absolute;
+  left: 50%;
+  /* 스크롤 전 최상단 */
+  top: 0;
+  transform: translate3d(-50%, var(--y, 0), 0);
+  /* 배경 위로 */
+  z-index: 200;
+  /* 클릭 방해 X */
+  pointer-events: auto;
+  will-change: transform;
+}
+#main-area .frida-logo img {
+  /* 반응형 크기 */
+  width: 33vw;
+  height: auto;
+  display: block;
+}
+#main-area .frida-logo.on img {
+  animation: updown-ani 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes updown-ani {
+  to {
+    translate: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-area .frida-logo {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/***************** 2-2. 문구 영역 (찢어지는 효과) *****************/
+
+/* cat-part inbox top에서 20% 떨어져서 위치 */
+/* #main-area .cat-part {
+  position: absolute;
+    display: flex;
+    top: 17%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+} */
+
+/* 텍스트를 가로로 묶는 줄(.text-row)에 대한 스타일 */
+/* .text-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0;
+} */
+
+
+/* 각 텍스트 이미지의 너비 (기존과 동일) */
+/* .tear-item {
+  width: 350px;
+} */
+
+
+
+/***************** 2-2. 문구 영역 (찢어지는 효과) *****************/
+
+
+/***************** 2-3. 캐스팅보드영역 *****************/
+.cas-box {
+  position: absolute;
+  display: flex;
+  gap: 50px;
+  /* 이미지 오른쪽 정렬 */
+  left: 45%;
+  top: 80vw;
+  width: 60vw;
+}
+.cas-box img {
+  width: 100%;
+}
+
+.cas-box li {
+  font-size: 2vw;
+  font-family: "돋움", serif;
+  font-weight: bold;
+  color: #000000;
+  list-style: none;
+  text-align: center;
+  -webkit-text-stroke: 1px #000000;
+  /* background-color: #ffffff4b; */
+}
+
+/* 3D 모델링 */
+.threed_model {
+  position: relative;
+}
+
+.modeling {
+  position: absolute;
+  top: 63vw;
+  left: 10%;
+  margin: 0 auto;
+  /* 가운데 정렬 */
+  display: block;
+}
+/* 3D 요소를 강제로 크기 가로폭에 반응하며 비율유지함! */
+.modeling > * {
+  width: 30vw !important;
+  aspect-ratio: 0.7;
+  height: auto !important;
+}
+
+/* 캐스팅 액자:
+상단에서 낙하 → 제자리 → 좌상단 힌지로 흔들림 + 바닥 그림자 퍼짐 */
+
+/* 첫 번째 li를 '프레임'으로 사용 */
+.cas-box .frame {
+  transform-origin: 0 0;
+  animation: frame-sway 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+/* 바닥 접지 그림자/먼지(핀 없음!) */
+.cas-box .frame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  /* 프레임 아래 살짝 */
+  bottom: -12px;
+  width: 60%;
+  height: 18px;
+  transform: translateX(-50%) scaleX(0.6);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0) 65%
+  );
+  /* 드랍 때만 보임 */
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* 낙하(프레임 전체 이동) */
+.cas-box.is-dropping .frame {
+  animation: frame-drop 900ms var(--delay, 0ms)
+    cubic-bezier(0.25, 0.9, 0.2, 1.05) forwards;
+}
+
+/* 낙하와 동시에 그림자 퍼지는 ‘먼지’ 효과 */
+.cas-box.is-dropping .frame::after {
+  animation: puff 700ms ease-out forwards var(--delay, 0ms);
+}
+
+/* 도착 후 달랑달랑 – 프레임 자체가 좌상단을 축으로 회전 */
+.cas-box.hang .frame {
+  transform-origin: 0 0; /* 좌상단 힌지 */
+  animation: frame-sway 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* keyframes */
+@keyframes frame-drop {
+  0% {
+    transform: translateY(-120vh) rotate(-6deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(0) rotate(1.6deg);
+    opacity: 1;
+  }
+  85% {
+    /* 가볍게 튕김 */
+    transform: translateY(-12px) rotate(-0.6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    /* 마지막 프레임에서 확실히 보이게 */
+    opacity: 1;
+  }
+}
+
+@keyframes puff {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.6);
+    filter: blur(0px);
+  }
+  40% {
+    opacity: 0.35;
+    transform: translateX(-50%) scaleX(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(1.4);
+    filter: blur(2px);
+  }
+}
+
+/* 비대칭으로 자연스러운 달랑거림 */
+@keyframes frame-sway {
+  0% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  30% {
+    transform: translateY(-1px) rotate(3.5deg);
+  }
+  55% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  80% {
+    transform: translateY(-0.5px) rotate(2.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+}
+
+/***************** 2-4. 팬텀캐릭터 영역 *****************/
+.pcat-part {
+  position: absolute;
+  top: 105vw;
+  left: 50%;
+  translate: -50% 0;
+  width: 100%;
+  aspect-ratio: 1.2;
+  overflow: hidden;
+}
+
+.glitch-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(/1차_웹프로젝트/01.자료수집/img/팬텀관련/캐릭터/mask_er1.png)
+    no-repeat center / cover;
+}
+.glitch-box2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../img/팬텀관련/팬텀이미지/문구.png) no-repeat center / cover;
+}
+
+/* Glitch 초기 상태: 숨김 */
+.glitch-box {
+  opacity: 0;
+  visibility: hidden;
+  /* 페이드인 */
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+  will-change: opacity;
+}
+
+/* 한 번 나타난 뒤엔 계속 보이기 */
+.glitch-box.show {
+  opacity: 1;
+  visibility: visible;
+  /* 보일 땐 지연 제거 */
+  transition: opacity 0.45s ease;
+}
+
+.pcat-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+
+/***************** 2-5. 팬텀 문구영역 *****************/
+.mu-part {
+  position: absolute;
+  top: 170vw;
+  left: 50%;
+  translate: -50% 0;
+  width: 50%;
+}
+
+.mu-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+/***************** 2-6. 팬텀하단글자 영역 *****************/
+.bphantom-part {
+  position: absolute;
+  top: 185vw;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.bphantom-part img {
+  width: 100%;
+  height: 100%;
+  /* 이미지 top 부분에서 맞춰서 보이게하기 */
+  object-fit: cover;
+  /* 이미지 보이는 영역이 위쪽에서부터 보이도록 */
+  object-position: top;
+}
+
+/* top 버튼 */
+.btn-top {
+  position: absolute;
+  right: 9%;
+  bottom: 0.2%;
+  background-color: red;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "Alfa Slab One";
+  border-radius: 30px;
+  padding: 10px;
+}
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.btn-top-box ul li:hover a {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 8px #ffffff;
+}

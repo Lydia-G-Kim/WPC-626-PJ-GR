@@ -53,7 +53,7 @@ window.addEventListener("load", () => {
 // 갑자기 서브페이지 상단 부분이 올라가는 문제 생김!!!!
 /******************************* 스티키 확인필요 *******************************/
 
-// ===== cat-part 이미지: hover 시 한번만 시작 후 계속 깜빡임 =====
+// ===== cat-part 이미지: enter 시 한번만 시작 후 계속 깜빡임 =====
 (() => {
   const catImg = document.querySelector(".cat-part img");
   if (!catImg) return;
@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
   let activated = false;
 
   document.querySelector(".cat-part").addEventListener("mouseenter", () => {
-    // 처음 hover 시에만 발동
+    // 처음 enter 시에만 발동
     if (activated) return;
     activated = true;
 
@@ -156,7 +156,7 @@ window.addEventListener("load", () => {
 //   });
 // });
 
-// === glitch-box: 첫 hover 때 나타나고, 이후 계속 글리치 유지 ===
+// === glitch-box: 첫 enter 때 나타나고, 이후 계속 글리치 유지 ===
 $(() => {
   const $zone = $(".pcat-part");
   const $glitch = $(".glitch-box");
@@ -164,7 +164,7 @@ $(() => {
   let shown = false; // show 클래스 1회만
 
   $zone.on("mouseenter", () => {
-    // 1) 처음 hover 되면 보이기 (영구 유지)
+    // 1) 처음 enter 되면 보이기 (영구 유지)
     if (!shown) {
       $glitch.addClass("show");
       shown = true;

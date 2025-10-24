@@ -30,6 +30,7 @@ body{
   overflow: hidden;
 }
 .intro-box {
+  position: relative;
   height: 100vh;
 }
 .intro-box video {
@@ -38,12 +39,21 @@ body{
   object-fit: cover;
   object-position: center;
 }
-.intro-box .scroll {
+.intro-box .down{
   position: absolute;
-  bottom: 5%;
+  bottom: 30px; 
   left: 50%;
-  translate: -50% 0;
+  transform: translateX(-50%); 
+  opacity: 1;
+  color: #ff0000;
+  font-family: "Alfa Slab One";
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  z-index: 100;
 }
+
+/* 스크롤다운 확인필요 */
+
 
 /************** 1. 티켓 예매 영역 **************/
 #intro-ticket-area {
