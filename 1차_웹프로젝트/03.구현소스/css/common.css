@@ -207,7 +207,7 @@ body, html {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-evenly;
-  background-color: #0000007a;
+  /* background-color: #0000007a; */
   height: 100%;
 }
 

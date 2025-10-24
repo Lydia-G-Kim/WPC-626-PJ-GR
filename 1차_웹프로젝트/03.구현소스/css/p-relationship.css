@@ -22,7 +22,7 @@
   width: 100%;
   height: 70vh;
   overflow: hidden;
-  margin-top: -122px; /* 상단 메뉴 덮기 */
+  margin-top: -30vh; /* 상단 메뉴 덮기 */
   z-index: 5; /* 다른 콘텐츠 위에 항상 표시 */
 }
 

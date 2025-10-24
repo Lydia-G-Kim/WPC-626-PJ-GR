@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMK뮤지컬컴퍼니 EMK MUSICAL COMPANY</title>
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="./css/frida_common.css" />
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/frida_mainpage.css" />
+    <!-- relationship CSS -->
+    <link rel="stylesheet" href="./css/f-relationship.css" />
+
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 제이쿼리 UI CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+
+    <!-- 메인 JS -->
+    <!-- <script defer src="./js/mainpage.js"></script> -->
+    <!-- 서브 JS -->
+    <script defer src="./js/f-relationship.js"></script>
+    <!-- 공통 JS -->
+    <script defer src="./js/common.js"></script>
+  </head>
+  <body>
+    <!-- 마우스 커서 변경 -->
+    <div class="custom-cursor">
+      <img src="./img/기타 이미지/마우스.png" class="cursor-img" alt="cursor" />
+      <img src="./img/로고/emk_logo_수정.png" class="cursor-tail" alt="로고" />
+    </div>
+
+    <!-- 1. 상단영역 -->
+    <div id="top-area">
+      <header class="top-area inbox">
+        <h2 class="temp-tit blind">1. 상단영역</h2>
+
+        <!-- 상단영역 플렉스부모박스 : .cont-box -->
+        <div class="cont-box">
+          <!-- 1-1. 로고박스 -->
+          <section class="logo-box">
+            <h1 class="logo">
+              <a href="#" class="btn emk">
+                <img
+                  src="../01.자료수집/img/로고/emk_logo_수정.png"
+                  alt="로고"
+                  style="width: 94px; height: 36px"
+                />
+              </a>
+            </h1>
+          </section>
+          <!-- 1-2. 메뉴박스 -->
+          <section class="menu-box">
+            <!-- 메뉴박스하위 메뉴그룹박스 -->
+            <div class="menu-group">
+              <!-- 1-2-1. GNB메뉴 -->
+              <nav class="gnb-menu">
+                <ul>
+                  <li>
+                    <a href="" class="btn">EMK</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">ABOUT US</a></li>
+                              <li><a href="#" class="btn">ABOUT CEO</a></li>
+                              <li><a href="#" class="btn">HISTORY</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                  <li>
+                    <a href="" class="btn">PRODUCTION</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">ORIGINAL</a></li>
+                              <li><a href="#" class="btn">LICENSE</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                  <li><a href="" class="btn">AUDITION</a></li>
+                  <li>
+                    <a href="" class="btn">BOARD</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn">NOTISE</a></li>
+                              <li><a href="#" class="btn">NEWS</a></li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                  <li><a href="" class="btn">SHOP</a></li>
+                  <li>
+                    <a href="" class="btn">RECRUIT</a>
+                    <article class="sub-menu">
+                      <div class="index">
+                        <aside class="sub-list">
+                          <div class="sub-list-padding-box">
+                            <ul>
+                              <li><a href="#" class="btn kr">채용 안내</a></li>
+                              <li><a href="#" class="btn kr">복리후생</a></li>
+                              <li><a href="#" class="btn kr">직무 정보</a></li>
+                              <li>
+                                <a href="#" class="btn kr">지원서 접수</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </article>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </section>
+        </div>
+      </header>
+    </div>
+
+    <!-- 인트로 영상 배너 -->
+    <section class="intro-banner">
+      <!-- 배경 영상 -->
+      <video src="./img/frida_pic/frida.mp4" autoplay loop muted playsinline></video>
+
+      <!-- 영상 위 텍스트 -->
+      <div class="intro-overlay">
+        <p class="intro-title">MUSICAL FRIDA</p>
+      </div>
+    </section>
+
+    <!-- 2. 메인영역 -->
+    <div id="main-area">
+      <div class="text-box">
+        <img src="./img/frida_pic/images/글씨 3D 프리다.png" alt="프리다로고" />
+      </div>
+      <section class="reserve-btn-wrapper">
+        <a href="#" class="btn-reserve">
+          <img src="./img/기타 이미지/티켓 픽토그램_최종.png" alt="티켓" />
+          예매하기
+        </a>
+      </section>
+      <!-- 히스토리 버튼 박스 -->
+      <div class="history-btn-box">
+        <!-- 히스토리 메뉴 -->
+        <nav class="history-menu">
+          <ul>
+            <li><a href="./frida_mainpage.html" class="history-btn" data-target="main">MAIN</a></li>
+            <li><a href="#" class="history-btn" data-target="2025">2025</a></li>
+            <li><a href="#" class="history-btn" data-target="2023">2023</a></li>
+            <li><a href="#" class="history-btn" data-target="2022">2022</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- 포스터 영역 -->
+      <div class="poster-box">
+        <ul>
+          <li data-year="2025">
+            <img
+              src="./img/frida_pic/프리다/25프리다_삼연.jpg"
+              alt="프리다삼연"
+            />
+          </li>
+          <li data-year="2023">
+            <img src="./img/frida_pic/프리다/25프리다_재연.jpg" alt="프리다재연" />
+          </li>
+          <li data-year="2022">
+            <img src="./img/frida_pic/프리다/25프리다_초연1.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연2.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연3.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연4.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연5.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연6.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연7.jpg" alt="프리다초연" />
+            <img src="./img/frida_pic/프리다/25프리다_초연8.jpg" alt="프리다초연" />           
+          </li>
+        </ul>
+      </div>
+       <!-- 상단이동버튼 -->
+      <button class="btn-top">TOP</button>
+    </div>
+
+    <!-- 3. 하단영역 -->
+    <div id="bottom-area">
+      <footer class="footer">
+        <div class="footer-wrap">
+          <!-- 상단: 로고 + 주소/정책 -->
+          <div class="footer-top">
+            <h2 class="footer__logo">
+              <img src="../01.자료수집/img/로고/emk로고.png" alt="EMK 로고" />
+            </h2>
+            <div class="corp-box">
+              <p class="corp-info">
+                5F, SUM BLDG. 176, NONHYEON-RO, GANGNAM-GU, SEOUL, KOREA
+                06296<br />
+                TEL +82 02 6391 6333 FAX +82 02 6391 6331 MAIL
+                emkmusical@emkm.co.kr<br />
+                COPYRIGHT © 2021 EMKMUSICALCOMPANY. ALL RIGHTS RESERVED BY
+                EMKMUSICAL COMPANY. LTD
+              </p>
+              <p class="policy-line">
+                PRIVACY POLICY&nbsp;&nbsp;|&nbsp;&nbsp;TERMS OF USE
+              </p>
+              <img
+                class="ent-logo"
+                src="../01.자료수집/img/로고/엔터테인먼트-2-uai-516x43.png"
+                alt="EMK ENTERTAINMENT"
+              />
+              <p></p>
+            </div>
+          </div>
+
+          <!-- SNS 아이콘 -->
+          <ul class="sns-list">
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/유튜브.png"
+                alt="YouTube"
+              />
+            </li>
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/인스타.png"
+                alt="Instagram"
+              />
+            </li>
+            <li>
+              <img
+                src="../01.자료수집/img/기타 이미지/카톡플친.png"
+                alt="Kakao"
+              />
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

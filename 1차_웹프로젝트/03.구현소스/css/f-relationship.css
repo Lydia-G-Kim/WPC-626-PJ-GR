@@ -1,0 +1,204 @@
+@charset "utf-8";
+/* EMK뮤지컬컴퍼니 PJ 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./frida_common.css);
+@import url(./reset.css);
+@import url(./core.css);
+/* 12그리드 CSS */
+@import url(./grid_12_flex.css);
+
+/* 공사중 표시 */
+/* body * {
+  outline: 2px dashed #ccc;
+} */
+
+body{
+  /* 바디 컬러 블랙 */
+  background-color: #000;
+}
+
+/***************** 메인 CSS *****************/
+
+/* 인트로 영상 배너 */
+.intro-banner {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin-top: -30vh; /* 상단 메뉴 덮기 */
+  z-index: 5; /* 다른 콘텐츠 위에 항상 표시 */
+}
+
+/* 배경 영상 */
+.intro-banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: brightness(0.85);
+  z-index: 1;
+}
+
+/* 오버레이 콘텐츠 */
+.intro-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+/*************** 
+서브 메인 페이지
+***************/
+
+/* 배경이미지 */
+#main-area {
+  background: url(../img/팬텀관련/팬텀이미지/screening_bg.jpg);
+  background-repeat: inherit;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* 프리다 이미지 */
+.text-box {
+  position: relative;
+  width: 100%;
+  /* 이미지 중앙에 위치 */
+  text-align: center;
+  top: 3%;
+}
+.text-box img {
+  width: 30vw;
+}
+
+/* 버튼 공통 스타일 */
+.reserve-btn-wrapper {
+  position: relative;
+  top: 1.8%;
+  display: flex;
+  gap: 20px;
+  border-radius: 6px;
+  justify-content: center;
+  margin-top: 100px;
+}
+.btn-reserve {
+  /* 아이콘 + 텍스트 정렬 */
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #06ab00;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+@media (max-width: 768px) {
+  .btn-reserve {
+    font-size: 0;
+    padding: 5px 8px;
+  }
+}
+
+.btn-reserve:hover {
+  background-color: #037501;
+}
+
+/* 아이콘 크기 */
+#main-area.reserve-btn-wrapper img {
+  /* 원하는 크기로 조정 */
+  width: 20px;
+  height: auto;
+}
+
+/* 히스토리 버튼 */
+.history-btn-box {
+  position: sticky;
+  top: 0;
+  margin-top: 30vh;
+  padding: 24px 0;
+  background-color: #0000007a;
+  z-index: 99999;
+  transition: all 0.5s ease-in-out;
+}
+.history-btn-box.move{
+  translate: 0 100%;
+}
+.history-btn-box ul {
+  display: flex;
+  justify-content: center;
+  gap: 4vw;
+}
+.history-btn-box a {
+  font-family: "Alfa Slab One", "Black Han Sans", serif;
+  font-size: 2vh;
+  color: #06ab00;
+}
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.history-btn-box ul li:hover a {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 20px #06ab00;
+}
+
+.poster-box {
+  margin-top: -30vh;
+  text-align: center;
+}
+.poster-box ul li img {
+  width: 40vw;
+  /* margin-bottom: 5vh; */
+  object-fit: contain;
+  /* 이미지 전체 보이기 */
+  max-height: 100%;
+  text-align: center;
+}
+/* 포스터 기본 상태 */
+.poster-box ul li {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  padding-top: 34vh;
+  /* opacity: 0;
+  transition: opacity 0.6s ease-in-out; */
+}
+
+/* 활성화된 포스터 (JS에서 .active 추가됨) */
+.poster-box ul li.active {
+  display: flex;
+  /* opacity: 1; */
+}
+
+/* 활성화된 히스토리 버튼 강조 */
+.history-btn.active {
+  color: #ffffff;
+  text-shadow: 0 0 8px #06ab00;
+}
+
+/* top 버튼 */
+.btn-top {
+  position: fixed;
+  right: 11%;
+  bottom: 10%;
+  background-color: #ff0000;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "Alfa Slab One";
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+/* 하위 메뉴 li 오버시 a요소 글자 빨간색 */
+.btn-top:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 8px #ffffff;
+}
