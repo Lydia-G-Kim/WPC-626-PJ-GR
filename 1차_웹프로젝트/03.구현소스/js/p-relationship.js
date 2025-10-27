@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const $historyBtnBox = $(".history-btn-box ul");
   // 스티키박스의 위치값구하기
   let historyBtnBoxTop = $historyBtnBox.offset().top;
-  console.log('스티키박스의 위치값',historyBtnBoxTop);
+  console.log("스티키박스의 위치값", historyBtnBoxTop);
 
   if (!buttons.length || !posters.length) return;
 
@@ -96,24 +96,29 @@ document.addEventListener("DOMContentLoaded", function () {
       buttons.forEach((b) => b.classList.remove("active"));
 
       // 포스터가 서서히 사라짐
-      $('.poster-box').fadeTo(500,0,()=>{
-        // 모든 포스터 숨기기
-        posters.forEach((li) => li.classList.remove("active"));
-        
-              // 클릭된 연도의 포스터만 표시
-              const targetPoster = document.querySelector(
-                `.poster-box ul li[data-year="${year}"]`
-              );
-              if (targetPoster) targetPoster.classList.add("active");
-              btn.classList.add("active");
-        
-              // 클릭시 스티키메뉴 상단위치로 스크롤이동하기
-              $('html, body').animate({
-                scrollTop: historyBtnBoxTop+'px'
-              }, 500, 'easeInQuint');
+      $(".poster-box")
+        .fadeTo(500, 0, () => {
+          // 모든 포스터 숨기기
+          posters.forEach((li) => li.classList.remove("active"));
 
+          // 클릭된 연도의 포스터만 표시
+          const targetPoster = document.querySelector(
+            `.poster-box ul li[data-year="${year}"]`
+          );
+          if (targetPoster) targetPoster.classList.add("active");
+          btn.classList.add("active");
 
-      }).delay(500).fadeTo(500,1);
+          // 클릭시 스티키메뉴 상단위치로 스크롤이동하기
+          $("html, body").animate(
+            {
+              scrollTop: historyBtnBoxTop + "px",
+            },
+            500,
+            "easeInQuint"
+          );
+        })
+        .delay(500)
+        .fadeTo(500, 1);
     }); ///////// click ////////////////
   }); /////////// forEach //////////////
 
@@ -121,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   $(".btn-top").click(function () {
     $("html, body").animate(
       {
-        scrollTop: historyBtnBoxTop+'px',
+        scrollTop: historyBtnBoxTop + "px",
       },
       2000,
       "easeInQuint"
@@ -130,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   });
 }); //////////// load구역 //////////////
-
 
 //////////// 1. 상단영역 ////////////
 window.addEventListener("load", () => {
@@ -153,7 +157,6 @@ window.addEventListener("load", () => {
   const $historyBtnBox = $(".history-btn-box ul");
   // 기준위치값
   let topBtnShowPosition = $historyBtnBox.offset().top + window.innerHeight;
-
 
   // 스크롤 이벤트 설정하기
   window.addEventListener("scroll", () => {
@@ -182,13 +185,11 @@ window.addEventListener("load", () => {
     // 중요!!! 마지막에 이전 스크롤 위치를 저장!
     prevScroll = curScroll;
 
-
     // 스크롤위치값이 기준위치값 보다 크면 나타나고 작은면 사라짐
-    if(curScroll > topBtnShowPosition){
+    if (curScroll > topBtnShowPosition) {
       $btnTop.fadeIn(300);
     } else {
       $btnTop.fadeOut(300);
     }
-
   }); //// scroll ////
 }); /// 로딩구역 ///////////////////////
