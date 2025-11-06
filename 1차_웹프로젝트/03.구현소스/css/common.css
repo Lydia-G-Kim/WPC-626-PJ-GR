@@ -163,16 +163,6 @@ body, html {
   margin-right: auto;
 }
 
-/******************************* 스티키 확인필요 *******************************/
-/* 메뉴박스 */
-/* #menu-box {
-  position: sticky;
-  top: 0;
-  background-color: #000;
-  z-index: 9999999;
-  상단영역과 동일한 트랜지션 적용!
-  transition: top 0.3s ease-in-out;
-} */
 
 /* 상단의 두번째 자식 */
 #menu-box {

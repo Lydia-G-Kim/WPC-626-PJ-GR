@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* 도깨비 PJ : 리셋 CSS - reset.css */
+/* 국중박 PJ : 리셋 CSS - reset.css */
 /* 기본 초기화 셋팅 */
 
 /* 기본 초기화 */
@@ -24,8 +24,8 @@ figcaption {
     padding: 0;
 }
 
-/* ul,ol 순번,블릿없앰 */
-ul,ol{
+/* ul,ol,li 순번,블릿없앰 */
+ul,ol,li{
     list-style: none;
 }
 
